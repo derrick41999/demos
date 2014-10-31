@@ -1,0 +1,118 @@
+<!DOCTYPE HTML>
+<html>
+	<header>
+		<style>
+			body {
+				margin: 0px;
+				padding: 0px;
+			}
+			.centered {
+  				position: fixed;
+  				top: 50%;
+  				left: 50%;
+  				transform: translate(-50%, -50%);
+			}
+			#myCanvas {
+				border: 3;
+				border-style: solid;
+				border-color: rgb(0,0,0);
+				margin: auto 0;	
+			}
+		</style>
+	</header>
+	<body>
+		<div class='container centered'>
+			<canvas id="myCanvas" width="578" height="578"></canvas>
+			<br/>
+			<button type="button" onClick="center()">Center</button>
+			<button type="button" onClick="topLeft(73,73)">TopLeft</button>
+			<button type="button" onClick="bottomLeft()">BottomLeft</button>
+			<button type="button" onClick="bottomRight()">BottomRight</button>
+			<button type="button" onClick="topRight()">TopRight</button>
+		</div>
+		<script>
+			var canvas = document.getElementById('myCanvas');
+			var context = canvas.getContext('2d');
+			var centerX = canvas.width / 2;
+			var centerY = canvas.height / 2;
+			var radius = 70;
+
+			context.beginPath();
+			context.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
+			context.fillStyle = 'rgb(46,131,181)';
+			context.fill();
+			context.lineWidth = 5;
+			context.strokeStyle = '#003300';
+			context.stroke();
+
+			function defineCircle(centerX, centerY) {
+
+			context.clearRect(0,0,canvas.width, canvas.height);
+			text.beginPath();
+			context.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
+			context.fillStyle = 'rgb(46,131,181)';
+			context.fill();
+			context.lineWidth = 5;
+			context.strokeStyle = '#003300';
+			context.stroke();
+
+			}
+
+			function center(){
+				context.clearRect(0,0,canvas.width, canvas.height);
+				context.beginPath();
+				context.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
+				context.fillStyle = 'rgb(46,131,181)';
+				context.fill();
+				context.lineWidth = 5;
+				context.strokeStyle = '#003300';
+				context.stroke();
+			}
+
+			function topLeft(centerX, centerY){
+				 
+				context.clearRect(0,0,canvas.width, canvas.height);
+				context.beginPath();
+				context.arc(73, 73, radius, 0, 2 * Math.PI, false);
+				context.fillStyle = 'rgb(46,131,181)';
+				context.fill();
+				context.lineWidth = 5;
+				context.strokeStyle = '#003300';
+				context.stroke();  
+			}
+
+			function bottomLeft(){
+				context.clearRect(0,0,canvas.width, canvas.height);
+				context.beginPath();
+				context.arc(73, 505, radius, 0, 2 * Math.PI, false);
+				context.fillStyle = 'rgb(46,131,181)';
+				context.fill();
+				context.lineWidth = 5;
+				context.strokeStyle = '#003300';
+				context.stroke();
+			}
+
+			function bottomRight(){
+				context.clearRect(0,0,canvas.width, canvas.height);
+				context.beginPath();
+				context.arc(505, 505, radius, 0, 2 * Math.PI, false);
+				context.fillStyle = 'rgb(46,131,181)';
+				context.fill();
+				context.lineWidth = 5;
+				context.strokeStyle = '#003300';
+				context.stroke();
+			}
+
+			function topRight(){
+				context.clearRect(0,0,canvas.width, canvas.height);
+				context.beginPath();
+				context.arc(505, 73, radius, 0, 2 * Math.PI, false);
+				context.fillStyle = 'rgb(46,131,181)';
+				context.fill();
+				context.lineWidth = 5;
+				context.strokeStyle = '#003300';
+				context.stroke();
+			}
+		</script>
+	</body>
+</html>
