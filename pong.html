@@ -23,10 +23,15 @@
 	<body>
 		<div class='container centered'>
 			<canvas id="myCanvas" width="1500%" height="675%" style="background-color: #000;" tabindex='1'></canvas>
-			<br/>
+				<!--This section plays the MorseCode audio file-->
+			<audio>
+				<source src="18790.wav">
+				<p>Your browser does not support the audio element.</p>
+			</audio>
 		</div>
 		<script>
 			var canvas = document.getElementById('myCanvas');
+			var v = document.getElementsByTagName("audio")[0];
 
 			var xCoordsBall = canvas.width/2;
 			var yCoordsBall = canvas.height/2;
@@ -44,78 +49,165 @@
 			drawRaquet(context, xCoordsRaquetLeft, yCoordsRaquetLeft);
 			drawRaquet(context, xCoordsRaquetRight, yCoordsRaquetRight);
 
-			var map = {38: false, 81: false};
+			sendBallLeft();
 
-			//The right arrow is keyCode #39
-			  document.addEventListener('keydown', function(event) {
-        			      if (event.keyCode in map) {
+			var map = {38: false, 81: false, 40: false, 90: false};
+
+			//This block handles each raquets controls
+		          document.addEventListener('keydown', function(event) {
+	        			 if (event.keyCode in map) {
         			      	map[event.keyCode] = true;
-	        			      	if (map[38] && map[81]) {
-	      			     	console.log(yCoordsRaquetRight);
-					clearRaquet(context, xCoordsRaquetRight, yCoordsRaquetRight);
-					context.setTransform(1,0,0,1,0,0);
-					yCoordsRaquetRight = yCoordsRaquetRight - 15;
-				          drawRaquet(context, xCoordsRaquetRight, yCoordsRaquetRight);
-
-	      			     	console.log(yCoordsRaquetLeft);
-					clearRaquet(context, xCoordsRaquetLeft, yCoordsRaquetLeft);
-					context.setTransform(1,0,0,1,0,0);
-					yCoordsRaquetLeft = yCoordsRaquetLeft - 15;
-				          drawRaquet(context, xCoordsRaquetLeft, yCoordsRaquetLeft);
-				      }
-			      }
-
-			 //      if(event.keyCode == 37 ) {
-
-				// clearBall(context);
-				// context.setTransform(1,0,0,1,0,0);
-				// xCoordsBall = xCoordsBall - 5;
-			 //            drawBall(context, xCoordsBall, yCoordsBall);
-			 //      }
-    //   			      if(event.keyCode == 39 ) {
-
-		  //          	clearBall(context);
-			 //          context.setTransform(1,0,0,1,0,0);
-			 //          xCoordsBall = xCoordsBall  + 5;
-    //       			drawBall(context, xCoordsBall, yCoordsBall);
-			 //      }
-			 //      //up
-    //   			      if(event.keyCode == 38 &&  yCoordsRaquetRight >=0 ) {
-    //   			     	console.log(yCoordsRaquetRight);
-				// clearRaquet(context, xCoordsRaquetRight, yCoordsRaquetRight);
-				// context.setTransform(1,0,0,1,0,0);
-				// yCoordsRaquetRight = yCoordsRaquetRight - 15;
-			 //          drawRaquet(context, xCoordsRaquetRight, yCoordsRaquetRight);
-			 //      }
-			 //       //down
-    //   			     if(event.keyCode == 40 &&  (yCoordsRaquetRight+60) <= canvas.height ) {
-			 //           // console.log(yCoordsRaquetRight);
-				// clearRaquet(context, xCoordsRaquetRight, yCoordsRaquetRight);
-				// context.setTransform(1,0,0,1,0,0);
-				// yCoordsRaquetRight = yCoordsRaquetRight + 15;
-			 //            drawRaquet(context, xCoordsRaquetRight, yCoordsRaquetRight);
-			 //      }
-    //     			      if(event.keyCode == 81 &&  yCoordsRaquetLeft >=0 ) {
-    //   			     	console.log(yCoordsRaquetLeft);
-				// clearRaquet(context, xCoordsRaquetLeft, yCoordsRaquetLeft);
-				// context.setTransform(1,0,0,1,0,0);
-				// yCoordsRaquetLeft = yCoordsRaquetLeft - 15;
-			 //            drawRaquet(context, xCoordsRaquetLeft, yCoordsRaquetLeft);
-			 //      }
-			 //       //down
-    //   			     if(event.keyCode == 90 &&  (yCoordsRaquetLeft+60) <= canvas.height ) {
-
-				// clearRaquet(context, xCoordsRaquetLeft, yCoordsRaquetLeft);
-				// context.setTransform(1,0,0,1,0,0);
-				// yCoordsRaquetLeft = yCoordsRaquetLeft + 15;
-			 //          drawRaquet(context, xCoordsRaquetLeft, yCoordsRaquetLeft);
-			 //      }
-			  }, false);
+        			      		//up arrow keydown
+	        			      	if (map[38] &&  yCoordsRaquetRight >=0 ) {
+		      			     	// console.log(yCoordsRaquetRight);
+						clearRaquet(context, xCoordsRaquetRight, yCoordsRaquetRight);
+						context.setTransform(1,0,0,1,0,0);
+						yCoordsRaquetRight = yCoordsRaquetRight - 15;
+					          drawRaquet(context, xCoordsRaquetRight, yCoordsRaquetRight);
+				      	}
+				      	//letter q keydown
+	        			      	if (map[81] && yCoordsRaquetLeft >=0) {
+		      			     	// console.log(yCoordsRaquetLeft);
+						clearRaquet(context, xCoordsRaquetLeft, yCoordsRaquetLeft);
+						context.setTransform(1,0,0,1,0,0);
+						yCoordsRaquetLeft = yCoordsRaquetLeft - 15;
+					          drawRaquet(context, xCoordsRaquetLeft, yCoordsRaquetLeft);
+					}
+					//up arrow && letter q keydown
+					if (map[38] && map[81]) {
+	        			      		if (yCoordsRaquetRight >=0) {
+			      			     	// console.log(yCoordsRaquetRight);
+							clearRaquet(context, xCoordsRaquetRight, yCoordsRaquetRight);
+							context.setTransform(1,0,0,1,0,0);
+							yCoordsRaquetRight = yCoordsRaquetRight - 15;
+						          drawRaquet(context, xCoordsRaquetRight, yCoordsRaquetRight);
+					      	}
+					          if (CoordsRaquetLeft >=0 ) {
+			      			     	// console.log(yCoordsRaquetLeft);
+							clearRaquet(context, xCoordsRaquetLeft, yCoordsRaquetLeft);
+							context.setTransform(1,0,0,1,0,0);
+							yCoordsRaquetLeft = yCoordsRaquetLeft - 15;
+						          drawRaquet(context, xCoordsRaquetLeft, yCoordsRaquetLeft);
+						}
+				      	}
+				      	//letter z keydown
+		      		        	if (map[40] &&  ((yCoordsRaquetRight+60) <= canvas.height)) {
+		      			     	// console.log(yCoordsRaquetRight);
+						clearRaquet(context, xCoordsRaquetRight, yCoordsRaquetRight);
+						context.setTransform(1,0,0,1,0,0);
+						yCoordsRaquetRight = yCoordsRaquetRight + 15;
+					          drawRaquet(context, xCoordsRaquetRight, yCoordsRaquetRight);
+				      	}
+				      	//letter z keydown
+	        			      	if (map[90] &&  ((yCoordsRaquetLeft+60) <= canvas.height)) {
+		      			     	// console.log(yCoordsRaquetLeft);
+						clearRaquet(context, xCoordsRaquetLeft, yCoordsRaquetLeft);
+						context.setTransform(1,0,0,1,0,0);
+						yCoordsRaquetLeft = yCoordsRaquetLeft + 15;
+					          drawRaquet(context, xCoordsRaquetLeft, yCoordsRaquetLeft);
+					}
+					//down arrow && letter z keydown
+					if (map[40] && map[90]) {
+	        			      		if ((yCoordsRaquetRight+60) <= canvas.height) {
+			      			     	// console.log(yCoordsRaquetRight);
+							clearRaquet(context, xCoordsRaquetRight, yCoordsRaquetRight);
+							context.setTransform(1,0,0,1,0,0);
+							yCoordsRaquetRight = yCoordsRaquetRight + 15;
+						          drawRaquet(context, xCoordsRaquetRight, yCoordsRaquetRight);
+					      	}
+					          if ((yCoordsRaquetLeft+60) <= canvas.height) {
+			      			     	// console.log(yCoordsRaquetLeft);
+							clearRaquet(context, xCoordsRaquetLeft, yCoordsRaquetLeft);
+							context.setTransform(1,0,0,1,0,0);
+							yCoordsRaquetLeft = yCoordsRaquetLeft + 15;
+						          drawRaquet(context, xCoordsRaquetLeft, yCoordsRaquetLeft);
+						}
+				      	}
+	      			}
+			}, false);
 			document.addEventListener('keyup', function(event) {
 				if (event.keyCode in map) {
 				        map[event.keyCode] = false;
 				    }
 				}, false);
+
+			function initGame() {
+				var xCoordsBall = canvas.width/2;
+				var yCoordsBall = canvas.height/2;
+
+				var xCoordsRaquetLeft = canvas.width/14;
+				var yCoordsRaquetLeft = canvas.height/2 - 30;
+
+				var xCoordsRaquetRight = canvas.width/1.1;
+				var yCoordsRaquetRight = canvas.height/2  - 30;
+
+				context.clearRect(0, 0, canvas.width, canvas.height);
+
+
+				drawBall(context, xCoordsBall, yCoordsBall);
+				drawRaquet(context, xCoordsRaquetLeft, yCoordsRaquetLeft);
+				drawRaquet(context, xCoordsRaquetRight, yCoordsRaquetRight);
+
+				sendBallLeft();
+			}
+
+			function sendBallLeft(){
+
+				var endInterval = setInterval(function(){
+				      	// console.log(xCoordsBall);
+					clearBall(context);
+					context.setTransform(1,0,0,1,0,0);
+					xCoordsBall = xCoordsBall - 1;
+				          if (xCoordsBall >= 45) {
+				          	console.log(yCoordsRaquetLeft);
+				          	console.log(xCoordsBall);
+					          drawBall(context, xCoordsBall, yCoordsBall);
+          					          if (xCoordsBall == 133){
+	        					          if (yCoordsRaquetLeft >= 277.5 && yCoordsRaquetLeft <= 337.5) {      		
+							          	clearInterval(endInterval);
+								v.play();	
+							          	sendBallRight();
+						          	}
+					          }
+				          }
+				          else {
+				          	drawBall(context, xCoordsBall, yCoordsBall);
+				          	clearInterval(endInterval);
+				          	// sendBallRight();
+				          }
+			      	}, 3);
+		  	}
+
+			function sendBallRight(){
+
+				var test;
+
+				var endInterval = setInterval(function(){
+				      	// console.log(xCoordsRaquetRight);
+					clearBall(context);
+					context.setTransform(1,0,0,1,0,0);
+					xCoordsBall = xCoordsBall + 1;
+
+				          if (xCoordsBall <=(canvas.width-45)) {
+				          	// console.log(yCoordsRaquetRight);
+				          	// console.log(xCoordsBall);
+					          	drawBall(context, xCoordsBall, yCoordsBall);
+        					          if (xCoordsBall == 1349){
+	        					          if (yCoordsRaquetRight >= 277.5 && yCoordsRaquetRight <= 337.5) {      		
+							          	clearInterval(endInterval);
+								v.play();
+							          	sendBallLeft();
+						          	}
+					          }
+					}
+				          else {
+				          	drawBall(context, xCoordsBall, yCoordsBall);
+				          	clearInterval(endInterval);
+			                  }
+			          }, 3);
+								          	// initGame();
+		  	}
+
 			function clearBall(context) {
 
 			          context.beginPath();
@@ -124,16 +216,18 @@
 			          context.fill();
 			          return;
 			}
+
 			function drawBall(context, xCoordsBall, yCoordsBall) {
-			          console.log(xCoordsBall);
+			          // console.log(xCoordsBall);
 			          context.beginPath();
 			          context.arc(xCoordsBall, yCoordsBall, radius, 0, 2 * Math.PI, false);
 			          context.fillStyle = 'rgb(255,255,255)';
 			          context.fill();
 			          return;
 			 }
-          			function clearRaquet(context, xCoordsRaquet, yCoordsRaquet) {
-          				   console.log(xCoordsRaquetRight, yCoordsRaquetRight);
+
+      			function clearRaquet(context, xCoordsRaquet, yCoordsRaquet) {
+          			// console.log(xCoordsRaquetRight, yCoordsRaquetRight);
 				context.clearRect(xCoordsRaquet-2, yCoordsRaquet-4, 50, 65);
 			          // context.beginPath();
 			          // context.rect(xCoordsRaquet-2, yCoordsRaquet, 12, 66);
@@ -141,6 +235,7 @@
 			          // context.fill();
 			          return;
 			}
+
 			function drawRaquet(context, xCoordsRaquet, yCoordsRaquet) {
 
 			          context.beginPath();
