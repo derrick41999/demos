@@ -47,9 +47,16 @@
 			var context = canvas.getContext('2d');
 			var radius = 6;
 
+			var leftRaquet = new Raquet(context, canvas); 
+			var rightRaquet = new Raquet(context, canvas); 
+
 			drawBall(context, xCoordsBall, yCoordsBall);
-			drawRaquet(context, xCoordsRaquetLeft, yCoordsRaquetLeft);
-			drawRaquet(context, xCoordsRaquetRight, yCoordsRaquetRight);
+
+			leftRaquet.drawInitialRaquet(context, canvas, canvas.width/14, canvas.height/2 - 90);
+			rightRaquet.drawInitialRaquet(context, canvas, canvas.width/1.1, canvas.height/2  - 30);
+
+			// drawRaquet(context, xCoordsRaquetLeft, yCoordsRaquetLeft);
+			// drawRaquet(context, xCoordsRaquetRight, yCoordsRaquetRight);
 
 			sendBallLeft(2, Math.random());
 
@@ -60,20 +67,12 @@
 	        			 if (event.keyCode in map) {
         			      	map[event.keyCode] = true;
         			      		//up arrow keydown
-	        			      	if (map[38] &&  yCoordsRaquetRight >= -1 ) {
-		      			     	// console.log(yCoordsRaquetRight);
-						clearRaquet(context, xCoordsRaquetRight, yCoordsRaquetRight);
-						context.setTransform(1,0,0,1,0,0);
-						yCoordsRaquetRight = yCoordsRaquetRight - 10;
-					          drawRaquet(context, xCoordsRaquetRight, yCoordsRaquetRight);
+	        			      	if (map[38]) {
+						rightRaquet.moveRaquet('up');
 				      	}
 				      	//letter q keydown
 	        			      	if (map[81] && yCoordsRaquetLeft >= -1) {
-		      			     	// console.log(yCoordsRaquetLeft);
-						clearRaquet(context, xCoordsRaquetLeft, yCoordsRaquetLeft);
-						context.setTransform(1,0,0,1,0,0);
-						yCoordsRaquetLeft = yCoordsRaquetLeft - 10;
-					          drawRaquet(context, xCoordsRaquetLeft, yCoordsRaquetLeft);
+	        			      		leftRaquet.moveRaquet('up');
 					}
 					//up arrow && letter q keydown
 					if (map[38] && map[81]) {
@@ -92,21 +91,13 @@
 						          drawRaquet(context, xCoordsRaquetLeft, yCoordsRaquetLeft);
 						}
 				      	}
-				      	//letter z keydown
-		      		        	if (map[40] &&  ((yCoordsRaquetRight+60) <= canvas.height)) {
-		      			     	// console.log(yCoordsRaquetRight);
-						clearRaquet(context, xCoordsRaquetRight, yCoordsRaquetRight);
-						context.setTransform(1,0,0,1,0,0);
-						yCoordsRaquetRight = yCoordsRaquetRight + 10;
-					          drawRaquet(context, xCoordsRaquetRight, yCoordsRaquetRight);
+				      	//down arrow keydown
+		      		        	if (map[40]) {
+	        			      		rightRaquet.moveRaquet('down');
 				      	}
 				      	//letter z keydown
 	        			      	if (map[90] &&  ((yCoordsRaquetLeft+60) <= canvas.height)) {
-		      			     	// console.log(yCoordsRaquetLeft);
-						clearRaquet(context, xCoordsRaquetLeft, yCoordsRaquetLeft);
-						context.setTransform(1,0,0,1,0,0);
-						yCoordsRaquetLeft = yCoordsRaquetLeft + 10;
-					          drawRaquet(context, xCoordsRaquetLeft, yCoordsRaquetLeft);
+						leftRaquet.moveRaquet('down');
 					}
 					//down arrow && letter z keydown
 					if (map[40] && map[90]) {
@@ -332,13 +323,13 @@
 
       			function clearRaquet(context, xCoordsRaquet, yCoordsRaquet) {
           			// console.log(xCoordsRaquetRight, yCoordsRaquetRight);
-          			//alert();
+ 			
 				context.clearRect(xCoordsRaquet-2, yCoordsRaquet-4, 50, 65);
-			           context.beginPath();
-			           context.rect(xCoordsRaquet-2, yCoordsRaquet, 12, 66);
-			           context.fillStyle = 'rgb(0,0,0)';
-			           context.fill();
-			          return;
+			            context.beginPath();
+			            context.rect(xCoordsRaquet-2, yCoordsRaquet, 12, 66);
+			            context.fillStyle = 'rgb(0,0,0)';
+			            context.fill();
+			           return;
 			}
 
 			function drawRaquet(context, xCoordsRaquet, yCoordsRaquet) {
@@ -348,7 +339,60 @@
 			          context.fillStyle = 'rgb(255,255,255)';
 			          context.fill();
 			          return;
+			}			
+			function Raquet(context, canvas) {
+
+				var _context;
+				var _canvas;
+				var _xCoordsRaquet;
+				var _yCoordsRaquet;
+
+				this.drawInitialRaquet = function(context, canvas, xCoordsRaquet, yCoordsRaquet) {
+
+					_context = context;
+					_canvas = canvas;
+					_xCoordsRaquet = xCoordsRaquet;
+					_yCoordsRaquet = yCoordsRaquet;
+				 
+				          context.beginPath();
+				          context.rect(_xCoordsRaquet, _yCoordsRaquet, 10, 60);
+				          context.fillStyle = 'rgb(255,255,255)';
+				          context.fill();
+				}
+
+				this.drawRaquet = function() {
+					// alert(_yCoordsRaquet);
+				          context.beginPath();
+				          context.rect(_xCoordsRaquet, _yCoordsRaquet, 10, 60);
+				          context.fillStyle = 'rgb(255,255,255)';
+				          context.fill();
+				          return;
+				}
+
+	      			this.clearRaquet = function() {
+	      				// alert(context);
+					context.clearRect(_xCoordsRaquet-2, _yCoordsRaquet-4, 11, 60);
+				           context.beginPath();
+				           context.rect(_xCoordsRaquet-2, _yCoordsRaquet-4, 15, 66);
+				           context.fillStyle = 'rgb(0,0,0)';
+				           context.fill();
+				           return;
+				}
+
+				this.moveRaquet = function(direction) {
+					if (_yCoordsRaquet >= -1 && direction == 'up' ) {
+						this.clearRaquet();
+				            	_yCoordsRaquet -= 10;
+				            	this.drawRaquet();
+					}
+					if ((_yCoordsRaquet+60) <= _canvas.height && direction == 'down' ) {
+						this.clearRaquet();
+				            	_yCoordsRaquet += 10;
+				            	this.drawRaquet();
+				          }
+				}
 			}
+
 		</script>
 	</body>
 </html>
