@@ -21,9 +21,10 @@
 		</style>
 	</header>
 	<body>			
-		<h1 style="margin:0; padding:0;color:green;">PONG programmed by Derrick Douglass <a href="http:\\www.derrickdouglassdesigns.com">www.derrickdouglassdesigns.com</a>:: BETA VERSION</h1>
+		<h1 style="margin:0; padding:0;color:green;margin-left:4em;">PONG programmed by Derrick Douglass <a href="http:\\www.derrickdouglassdesigns.com">www.derrickdouglassdesigns.com</a>:: BETA VERSION</h1>
 		<div class='container centered'>
-
+			<form style="margin-top:5px;"><input type="button" value="serve" onclick="serveBall();" /></form>
+			<br />
 			<canvas id="myCanvas" width="1500%" height="675%" style="background-color: #000;" tabindex='1'></canvas>
 				<!--This section plays the MorseCode audio file-->
 			<audio>
@@ -51,9 +52,6 @@
 			var rightRaquet = new Raquet(context, canvas); 
 			var gameBall = new Ball(context, canvas); 
 			var leftScore = new Score(context);
-
-			gameBall.drawInitialBall(context, canvas, canvas.width/2, canvas.height/2);
-			gameBall.moveBall(2, Math.random(), leftRaquet, rightRaquet);
 
 			leftRaquet.drawInitialRaquet(context, canvas, canvas.width/14, canvas.height/2 - 90);
 			rightRaquet.drawInitialRaquet(context, canvas, canvas.width/1.1, canvas.height/2  - 30);
@@ -126,24 +124,14 @@
 				    }
 				}, false);
 
-			function initGame() {
-				var xCoordsBall = canvas.width/2;
-				var yCoordsBall = canvas.height/2;
-
-			var xCoordsRaquetLeft = canvas.width/14;
-			var yCoordsRaquetLeft = canvas.height/2 - 30;
-
-			var xCoordsRaquetRight = canvas.width/1.1;
-			var yCoordsRaquetRight = canvas.height/2  - 30;
-
-				context.clearRect(0, 0, canvas.width, canvas.height);
-
-
-				drawBall(context, xCoordsBall, yCoordsBall);
-				drawRaquet(context, xCoordsRaquetLeft, yCoordsRaquetLeft);
-				drawRaquet(context, xCoordsRaquetRight, yCoordsRaquetRight);
-
-				sendBallLeft(2,Math.random());
+			function serveBall(){	
+			leftScore.drawScore(context);
+			leftRaquet.clearRaquet();
+			rightRaquet.clearRaquet();
+			leftRaquet.drawInitialRaquet(context, canvas, canvas.width/14, canvas.height/2 - 90);
+			rightRaquet.drawInitialRaquet(context, canvas, canvas.width/1.1, canvas.height/2  - 30);	
+			gameBall.drawInitialBall(context, canvas, canvas.width/2, canvas.height/2);
+			gameBall.moveBall(2, Math.random(), leftRaquet, rightRaquet);
 			}
 
 			function Score(context) {
@@ -248,58 +236,64 @@
 						if (_yCoordsBall > _canvas.height && direction == 'left') { 
 							angleY = Math.abs(angleY);
 						}
-							//send left
+
 					          if(direction == 'left') {
-						          _xCoordsBall = _xCoordsBall - angleX;
+						           _xCoordsBall = _xCoordsBall - angleX;
 							_yCoordsBall = _yCoordsBall - angleY;
-							console.log(angleY);
+
 						          	if (_xCoordsBall >= 45) {
-								          self.drawBall();
-		          					          if (_xCoordsBall == 126){
-		          					          	console.log(leftRaquet.yCoords());
-				        					          if (leftRaquet.yCoords() <= _yCoordsBall - 3 && (leftRaquet.yCoords() + 8.57) >= _yCoordsBall)  {
+							          self.drawBall();
+
+		          					          if (_xCoordsBall == 126) {
+
+			        					          if (leftRaquet.yCoords() <= _yCoordsBall - 3 && (leftRaquet.yCoords() + 8.57) >= _yCoordsBall)  {
 									          	clearInterval(endInterval);
-											v.play();
-											direction = 'right';	
+										v.play();
+										direction = 'right';	
 									          	self.moveBall(2,-.35, leftRaquet, rightRaquet);
 								          	}
 								          	if ((leftRaquet.yCoords() + 8.57) < _yCoordsBall && (leftRaquet.yCoords() + 17.14) >=_yCoordsBall)  {
 									          	clearInterval(endInterval);
-											v.play();
-											direction = 'right';	
+										v.play();
+										direction = 'right';	
 									          	self.moveBall(2,-.5, leftRaquet, rightRaquet);
 								          	}
 					        					if ((leftRaquet.yCoords() + 17.14) < _yCoordsBall && (leftRaquet.yCoords() + 25.71) >= _yCoordsBall) {
 									          	clearInterval(endInterval);
-											v.play();
-											direction = 'right';	
+										v.play();
+										direction = 'right';	
 									          	self.moveBall(2,-.75, leftRaquet, rightRaquet);
 								          	}
 								          	if ((leftRaquet.yCoords() + 25.71) < _yCoordsBall && (leftRaquet.yCoords() + 34.28) >= _yCoordsBall)  {
 									          	clearInterval(endInterval);
-											v.play();
-											direction = 'right';	
+										v.play();
+										direction = 'right';	
 									          	self.moveBall(1,.9, leftRaquet, rightRaquet);
 								          	}
 								          	if ((leftRaquet.yCoords() + 34.28) < _yCoordsBall && (leftRaquet.yCoords() + 42.8) >=_yCoordsBall)  {
 									          	clearInterval(endInterval);
-											v.play();
-											direction = 'right';	
+										v.play();
+										direction = 'right';	
 									          	self.moveBall(1,1.3, leftRaquet, rightRaquet);
 								          	}
 								          	if ((leftRaquet.yCoords() + 42.8) < _yCoordsBall && (leftRaquet.yCoords() + 51.52) >= _yCoordsBall)  {
 									          	clearInterval(endInterval);
-											v.play();
-											direction = 'right';	
+										v.play();
+										direction = 'right';	
 									          	self.moveBall(1,1.7, leftRaquet, rightRaquet);
 								          	}
 								          	if ((leftRaquet.yCoords() + 51.52) < _yCoordsBall && (leftRaquet.yCoords() + 63) >= _yCoordsBall)  {
 									          	clearInterval(endInterval);
-											v.play();
-											direction = 'right';	
+										v.play();
+										direction = 'right';	
 									          	self.moveBall(.9,2, leftRaquet, rightRaquet);
 								          	}
-								          }
+							          }
+						          }
+						           else {
+						           	self.clearBall();
+							          clearInterval(endInterval);
+
 						          }
 						}
 						if(direction == 'right') {
@@ -309,56 +303,56 @@
 							// alert(rightRaquet.yCoords());
 						          	if (_xCoordsBall <=(canvas.width-45)) {
 						          		self.drawBall();
-						          		// console.log(_xCoordsBall);
-							           if (_xCoordsBall >= 1348 && _xCoordsBall <= 1349){
 
-							          if (rightRaquet.yCoords() <= (_yCoordsBall - 3) && (rightRaquet.yCoords() + 8.57) >= _yCoordsBall)  {
-									          	clearInterval(endInterval);
-											v.play();
-											direction = 'left';	
+							          if (_xCoordsBall >= 1348 && _xCoordsBall <= 1349){
+
+								          if (rightRaquet.yCoords() <= (_yCoordsBall - 3) && (rightRaquet.yCoords() + 8.57) >= _yCoordsBall)  {
+								          	clearInterval(endInterval);
+										v.play();
+										direction = 'left';	
 									          	self.moveBall(2,-.35, leftRaquet, rightRaquet);
 								          	}
 								          	if ((rightRaquet.yCoords() + 8.57) < _yCoordsBall && (rightRaquet.yCoords() + 17.14) >=_yCoordsBall)  {
 									          	clearInterval(endInterval);
-											v.play();
-											direction = 'left';	
+										v.play();
+										direction = 'left';	
 									          	self.moveBall(2,-.5, leftRaquet, rightRaquet);
 								          	}
-										if ((rightRaquet.yCoords() + 17.14) < _yCoordsBall && (rightRaquet.yCoords() + 25.71) >= _yCoordsBall) {
+									if ((rightRaquet.yCoords() + 17.14) < _yCoordsBall && (rightRaquet.yCoords() + 25.71) >= _yCoordsBall) {
 									          	clearInterval(endInterval);
-											v.play();
-											direction = 'left';	
+										v.play();
+										direction = 'left';	
 									          	self.moveBall(2,-.75, leftRaquet, rightRaquet);
 								          	}
 								          	if ((rightRaquet.yCoords() + 25.71) < _yCoordsBall && (rightRaquet.yCoords() + 34.28) >= _yCoordsBall)  {
 									          	clearInterval(endInterval);
-											v.play();
-											direction = 'left';	
+										v.play();
+										direction = 'left';	
 									          	self.moveBall(1,.9, leftRaquet, rightRaquet);
 								          	}
 								          	if ((rightRaquet.yCoords() + 34.28) < _yCoordsBall && (rightRaquet.yCoords() + 42.8) >=_yCoordsBall)  {
 									          	clearInterval(endInterval);
-											v.play();
-											direction = 'left';	
+										v.play();
+										direction = 'left';	
 									          	self.moveBall(1,1.3, leftRaquet, rightRaquet);
 								          	}
 								          	if ((rightRaquet.yCoords() + 42.8) < _yCoordsBall && (rightRaquet.yCoords() + 51.52) >= _yCoordsBall)  {
 									          	clearInterval(endInterval);
-											v.play();
-											direction = 'left';	
+										v.play();
+										direction = 'left';	
 									          	self.moveBall(1,1.7, leftRaquet, rightRaquet);
 								          	}
 								          	if ((rightRaquet.yCoords() + 51.52) < _yCoordsBall && (rightRaquet.yCoords() + 63) >= _yCoordsBall)  {
 									          	clearInterval(endInterval);
-											v.play();
-											direction = 'left';	
+										v.play();
+										direction = 'left';	
 									          	self.moveBall(.9,2, leftRaquet, rightRaquet);
 								          	}
 							          }
 						          }
 						          else {
-						          self.drawBall(context, xCoordsBall, yCoordsBall);
-						          clearInterval(endInterval);
+						          self.clearBall();
+							          clearInterval(endInterval);
 						          }
 					      	}
 
