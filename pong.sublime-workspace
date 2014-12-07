@@ -1,0 +1,498 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"angle",
+				"angleX"
+			],
+			[
+				"le",
+				"length"
+			],
+			[
+				"leftt",
+				"leftTopRight"
+			],
+			[
+				"left",
+				"leftTop"
+			],
+			[
+				"_",
+				"_context"
+			],
+			[
+				"y",
+				"_yCoordsRaquet"
+			],
+			[
+				"x",
+				"xCoordsRaquet"
+			],
+			[
+				"draw",
+				"drawInitialRaquet"
+			],
+			[
+				"ange",
+				"angleX"
+			],
+			[
+				"an",
+				"angleY"
+			],
+			[
+				"xCoordsRaquetL",
+				"xCoordsRaquetLeft"
+			],
+			[
+				"Key",
+				"keyCode"
+			],
+			[
+				"trans",
+				"transform"
+			],
+			[
+				"key",
+				"keyCode"
+			],
+			[
+				"lef",
+				"leftCoords"
+			],
+			[
+				"can",
+				"canvas"
+			],
+			[
+				"ca",
+				"canvas_y"
+			],
+			[
+				"canv",
+				"canvas_y"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"conte",
+				"context"
+			],
+			[
+				"cen",
+				"centerY"
+			],
+			[
+				"bor",
+				"border-color"
+			],
+			[
+				"border",
+				"border-style"
+			],
+			[
+				"c",
+				"canvas"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "pong.html",
+			"settings":
+			{
+				"buffer_size": 14902,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "Packages/User/Chrome.sublime-build",
+	"command_palette":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+			[
+				"tol",
+				"View: Toggle Status Bar"
+			],
+			[
+				"togg",
+				"View: Toggle Side Bar"
+			],
+			[
+				"Snippet: ",
+				"Snippet: <?php else: ?>"
+			],
+			[
+				"",
+				"View: Toggle Tabs"
+			]
+		],
+		"width": 400.0
+	},
+	"console":
+	{
+		"height": 160.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/Users/Derrick/Desktop/delete.html",
+		"/C/xampp/htdocs/demos/HTML_Canvas_Element/Pong/pong.html",
+		"/C/xampp/htdocs/demos/HTML_Canvas_Element/Pong/delete1.html",
+		"/C/xampp/htdocs/demos/HTML_Canvas_Element/Pong/delete.html",
+		"/C/xampp/htdocs/tuskegee/index.php",
+		"/C/xampp/htdocs/tuskegee/redtailmontgomery.html",
+		"/C/Users/Derrick/Desktop/Delete.html",
+		"/C/xampp/htdocs/tuskegee/bibliography.html",
+		"/C/xampp/htdocs/tuskegee/home.html",
+		"/C/xampp/htdocs/tuskegee/Delete1.html",
+		"/C/xampp/htdocs/tuskegee/Delete2.html",
+		"/C/xampp/htdocs/tuskegee/Delete.html",
+		"/C/xampp/htdocs/tuskegee/blog.html",
+		"/C/xampp/htdocs/demos/HTML_Canvas_Element/Pong/pong.sublime-project",
+		"/C/xampp/htdocs/demos/HTML_Canvas_Element/Circle/circle.html",
+		"/C/Users/Derrick/AppData/Roaming/Sublime Text 2/Packages/User/Chrome.sublime-build",
+		"/C/Users/Derrick/AppData/Roaming/Sublime Text 2/Packages/User/Safari.sublime-build",
+		"/C/Users/Derrick/AppData/Roaming/Sublime Text 2/Packages/User/IE.sublime-build",
+		"/C/Users/Derrick/AppData/Roaming/Sublime Text 2/Packages/User/Firefox.sublime-build",
+		"/C/Users/Derrick/AppData/Roaming/Sublime Text 2/Packages/Default/Preferences.sublime-settings",
+		"/C/Users/Derrick/AppData/Roaming/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+		"/C/Users/Derrick/Desktop/circle",
+		"/C/xampp/htdocs/DerrickDouglassDesigns/portfolio.html",
+		"/C/xampp/htdocs/DerrickDouglassDesigns/portfolio_web.html",
+		"/C/Users/Derrick/Desktop/portfolio_web.html",
+		"/C/xampp/htdocs/DerrickDouglassDesigns/portfolio_magazine.html",
+		"/C/xampp/htdocs/DerrickDouglassDesigns/portfolio_logo.html",
+		"/C/xampp/htdocs/DerrickDouglassDesigns/portfolio_cbranding.html",
+		"/C/xampp/htdocs/DerrickDouglassDesigns/portfolio_branding.html",
+		"/C/xampp/htdocs/DerrickDouglassDesigns/portfolio_mobile.html",
+		"/C/xampp/htdocs/DerrickDouglassDesigns/portfolio_bookcover.html",
+		"/C/xampp/htdocs/DerrickDouglassDesigns/portfolio_newspaper.html",
+		"/C/xampp/htdocs/DerrickDouglassDesigns/portfolio_poster.html",
+		"/C/xampp/htdocs/DerrickDouglassDesigns/Archive/portfolio.html",
+		"/C/xampp/htdocs/DerrickDouglassDesigns/sitemap.xml",
+		"/C/xampp/htdocs/DerrickDouglassDesigns/Freydas_Hands.pdf",
+		"/C/xampp/htdocs/DerrickDouglassDesigns/Home_Page.ai",
+		"/C/xampp/htdocs/DerrickDouglassDesigns/Vision_Statement.ai",
+		"/C/xampp/htdocs/DerrickDouglassDesigns/blog.html",
+		"/C/xampp/htdocs/DerrickDouglassDesigns/blogDelete.html",
+		"/C/xampp/htdocs/DerrickDouglassDesigns/capennydesigns.html",
+		"/C/xampp/htdocs/DerrickDouglassDesigns/clients.html",
+		"/C/xampp/htdocs/DerrickDouglassDesigns/contact.html",
+		"/C/xampp/htdocs/DerrickDouglassDesigns/content-management-systems.html",
+		"/C/xampp/htdocs/DerrickDouglassDesigns/delete.html",
+		"/C/xampp/htdocs/DerrickDouglassDesigns/Flickr.html",
+		"/C/xampp/htdocs/DerrickDouglassDesigns/graphic-design.html",
+		"/C/xampp/htdocs/DerrickDouglassDesigns/home.html",
+		"/C/xampp/htdocs/DerrickDouglassDesigns/homeDelete.html",
+		"/C/xampp/htdocs/DerrickDouglassDesigns/index.html",
+		"/C/xampp/htdocs/DerrickDouglassDesigns/mobile-development.html",
+		"/C/xampp/htdocs/DerrickDouglassDesigns/ourteam.html",
+		"/C/xampp/htdocs/DerrickDouglassDesigns/sitemap.html",
+		"/C/xampp/htdocs/DerrickDouglassDesigns/website-development.html",
+		"/C/xampp/htdocs/DerrickDouglassDesigns/application.js",
+		"/C/xampp/htdocs/DerrickDouglassDesigns/jquery.min.js",
+		"/C/xampp/htdocs/DerrickDouglassDesigns/randomImageOnload-1.js",
+		"/C/xampp/htdocs/DerrickDouglassDesigns/Home_Page.jpg",
+		"/C/xampp/htdocs/DerrickDouglassDesigns/index.php",
+		"/C/xampp/htdocs/DerrickDouglassDesigns/mail_form.php",
+		"/C/xampp/htdocs/DerrickDouglassDesigns/send_form_email.php",
+		"/C/xampp/htdocs/DerrickDouglassDesigns/Logo_Derrick-Douglass_Stacked.png",
+		"/C/xampp/htdocs/DerrickDouglassDesigns/DerrickDouglassDesigns.sublime-project",
+		"/C/xampp/htdocs/DerrickDouglassDesigns/DerrickDouglassDesigns.sublime-workspace",
+		"/C/xampp/htdocs/DerrickDouglassDesigns/FilesToBeUpdated.txt",
+		"/C/xampp/htdocs/DerrickDouglassDesigns/hCard.txt",
+		"/C/xampp/htdocs/DerrickDouglassDesigns/SVG.txt",
+		"/C/xampp/htdocs/DerrickDouglassDesigns/derrickdouglassdesigns.vcf",
+		"/C/xampp/htdocs/DerrickDouglassDesigns/Contact_List.xlsx",
+		"/C/xampp/htdocs/DerrickDouglassDesigns/swap_image_source.txt",
+		"/C/xampp/htdocs/DerrickDouglassDesigns/css.zip",
+		"/C/xampp/htdocs/DerrickDouglassDesigns/Home_Page.zip",
+		"/C/xampp/htdocs/DerrickDouglassDesigns/html_Upload.zip",
+		"/C/xampp/htdocs/DerrickDouglassDesigns/professional_web_business_tools.zip",
+		"/C/xampp/htdocs/DerrickDouglassDesigns/Scripts.zip",
+		"/C/xampp/htdocs/DerrickDouglassDesigns/Slidorion-master.zip",
+		"/C/xampp/htdocs/DerrickDouglassDesigns/upload.zip",
+		"/C/xampp/htdocs/DerrickDouglassDesigns/WebPages.zip",
+		"/C/xampp/htdocs/DerrickDouglassDesigns/WebPages02222014.zip",
+		"/C/xampp/htdocs/DerrickDouglassDesigns/WebPages02232014.zip",
+		"/C/xampp/htdocs/DerrickDouglassDesigns/WebPages04152014.zip",
+		"/C/xampp/htdocs/DerrickDouglassDesigns/WebPages04222014.zip",
+		"/C/xampp/htdocs/DerrickDouglassDesigns/website-development.zip",
+		"/C/xampp/htdocs/scenescream.js/images/Intro_Graphic.indd",
+		"/C/xampp/htdocs/scenescream.js/documents/setup.md",
+		"/C/xampp/htdocs/img/a.html",
+		"/C/xampp/htdocs/scenescream.js/js/jquery.min.js",
+		"/C/xampp/htdocs/scenescream.js/css/main.css",
+		"/C/xampp/htdocs/scenescream.js/scenescream.js",
+		"/C/xampp/htdocs/scenescream.js/demo.html",
+		"/C/xampp/htdocs/scenescream.js/README.md",
+		"/C/xampp/htdocs/scenescream.js/images/Sublime_Test.html",
+		"/C/xampp/htdocs/scenescream.js/README.txt",
+		"/C/Users/Derrick/AppData/Roaming/Sublime Text 2/Packages/User/Package Control.sublime-settings",
+		"/C/Users/Derrick/AppData/Roaming/Sublime Text 2/Packages/Package Control/Package Control.sublime-settings",
+		"/C/Users/Derrick/Desktop/Sublime_Test.html",
+		"/C/xampp/htdocs/gigawatt/kelly.htm",
+		"/C/xampp/htdocs/gigawatt/index.html",
+		"/C/xampp/htdocs/gigawatt/jess.htm",
+		"/C/Users/Derrick/AppData/Roaming/Sublime Text 2/Packages/User/Default (Windows).sublime-keymap",
+		"/C/xampp/htdocs/tuskegee/about.html",
+		"/C/xampp/htdocs/CCCL/08172014.html"
+	],
+	"find":
+	{
+		"height": 36.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+			"<open folders>,-*.txt"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			");\n",
+			"test",
+			"counter",
+			"_cQueue",
+			"2",
+			"alert",
+			"rigth",
+			" +",
+			"rigth",
+			"console",
+			"here",
+			"//",
+			"sendBallRight",
+			"leftRaquet",
+			"yCoordsRaquetRight",
+			"sendBallRight",
+			"yCoordsRaquet",
+			"rightRaquet",
+			"direction",
+			"alert",
+			");",
+			"moveball",
+			"direction",
+			"this.",
+			"clearball",
+			"direction",
+			" yCoordsBall",
+			"(yCoords",
+			"yCoords",
+			"leftRaquet.yCoords()",
+			"drawRaquet",
+			"clearRaquet",
+			"_yCoordsRaquet",
+			"xCoordsRaquet",
+			"yCoordsRaquetLeft",
+			"yCoordsRaquetRight",
+			"yCoordsRaquetLeft",
+			"alert",
+			"test",
+			"console.log",
+			"sendBallRight",
+			"yCoordsRaquetLeft",
+			"console",
+			"sendBallRight",
+			"yCoordsRaquetLeft",
+			"alert",
+			"sendBallRight",
+			"path",
+			"save",
+			"clearRaquet",
+			"yCoordsRaquet",
+			"15",
+			"setTransform",
+			"yCoordsRaquetRight",
+			"console.log",
+			"xCoordsRaquetRight",
+			"\n				          	",
+			"console",
+			"canvas.height",
+			"experiment",
+			"with",
+			"Experiment",
+			"experiment",
+			"h1",
+			"xCoordsRaquetRight",
+			"yCoordsRaquetRight",
+			"xCoordsRaquet",
+			"yCoords",
+			"xCoords",
+			"1",
+			"rect",
+			"e.",
+			"e",
+			"x",
+			"y",
+			"Coords",
+			"$file",
+			"file",
+			";\n",
+			"ruler",
+			"DERRICK",
+			"This",
+			"CCCLtv_half_moon_top",
+			"CCLtv_half_moon_top",
+			"CCCLtv_half_moon_top",
+			"gigawattgroup",
+			"<meta name=\"description\" content=\"Clean Cuts a leader in original music and sound design, we understand that technology is only as good as the people who use it. Cerebral Lounge a boutique-style, production and post-production company that specializes in network promos, commercials, and visual branding.\"/>",
+			"width",
+			"meta"
+		],
+		"highlight": false,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": true,
+		"replace_history":
+		[
+			"",
+			"width"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "pong.html",
+					"settings":
+					{
+						"buffer_size": 14902,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4548,
+								4548
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 2375.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 36.0
+	},
+	"input":
+	{
+		"height": 36.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 26.0
+	},
+	"replace":
+	{
+		"height": 66.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"",
+				"pong.html"
+			],
+			[
+				"por",
+				"Archive/portfolio.html"
+			],
+			[
+				"de",
+				"scenescream.js/demo.html"
+			],
+			[
+				"subl",
+				"scenescream.js/images/Sublime_Test.html"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+			[
+				"",
+				"/C/Users/Derrick/Desktop/Sublime_Project.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": false
+}
