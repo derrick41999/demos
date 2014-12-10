@@ -19,6 +19,7 @@
 				margin: auto 0;	
 			}
 		</style>
+		<noscript style="font-size:75px;">Sorry, your browser does not support JavaScript!</noscript>
 	</header>
 	<body>			
 		<h1 style="margin:0; padding:0;color:green;margin-left:4em;">PONG programmed by Derrick Douglass <a href="http:\\www.derrickdouglassdesigns.com">www.derrickdouglassdesigns.com</a>:: BETA VERSION</h1>
@@ -27,14 +28,28 @@
 			<br />
 			<canvas id="myCanvas" width="1500%" height="675%" style="background-color: #000;" tabindex='1'></canvas>
 				<!--This section plays the MorseCode audio file-->
-			<audio>
+			<audio class="hit">
 				<source src="18790.wav">
+				<p>Your browser does not support the audio element.</p>
+			</audio>
+			<audio class="score">
+				<source src="score.mp3">
 				<p>Your browser does not support the audio element.</p>
 			</audio>
 		</div>
 		<script>
 			var canvas = document.getElementById('myCanvas');
-			var v = document.getElementsByTagName("audio")[0];
+			// var source_v = document.createElement('source');
+			// var source_z = document.createElement('source');
+
+			// source_v.src = "18790.wav";
+			// source_z.src = "score.mp3";
+
+			var v = document.getElementsByClassName("hit")[0];
+			var z = document.getElementsByClassName("score")[0];
+
+			// v.appendChild(source_v);
+			// z.appendChild(source_z);
 
 			var xCoordsBall = canvas.width/2;
 			var yCoordsBall = canvas.height/2;
@@ -50,16 +65,15 @@
 
 
 			var rightScore = new Score(context, 'right'); 
-			var leftScore = new Score(context, 'left');
+			var leftScore = new Score(context, 1);
 
+			var leftRaquet = new Raquet(context, canvas);
 			var rightRaquet = new Raquet(context, canvas); 
-			var leftRaquet = new Raquet(context, canvas); 
-			
+						
 			var gameBall = new Ball(context, canvas, leftScore);
 
-
-			leftRaquet.drawInitialRaquet(context, canvas, canvas.width/14, canvas.height/2 - 90);
-			rightRaquet.drawInitialRaquet(context, canvas, canvas.width/1.1, canvas.height/2  - 30);
+			rightRaquet.drawInitialRaquet(context, canvas, canvas.width/1.1, canvas.height/2  - 30, 'right');
+			leftRaquet.drawInitialRaquet(context, canvas, canvas.width/14, canvas.height/2 - 90, 'left');
 
 			leftScore.updateScore();
 
@@ -142,14 +156,24 @@
 				var tempArray = [];
 				var _currentScore = 0;
 				var _player = player;
+				var left;
+				var right;
 
-				var Top = [416,50,427,60,451,60,463,50,416,50];
-				var TopRight = [464,50,464,82,458,88,453,83,453,60];
-				var BottomRight = [464,95,464,126,453,116,453,94,458,89];
-				var Middle = [457,88,452,93,427,93,422,88,427,83,452,83];
-				var Bottom = [452,116,463,127,416,127,427,116];
-				var BottomLeft = [421,89,426,94,426,116,416,125,416,93];
-				var TopLeft = [416,51,426,61,426,61,426,83,421,88,416,83];
+				var Top = [351,50,362,60,386,60,398,50,351,50];
+				var TopRight = [399,50,399,82,393,88,388,83,388,60];
+				var BottomRight = [399,95,399,126,388,116,388,94,393,89];
+				var Middle = [392,88,387,93,362,93,357,88,362,83,387,83];
+				var Bottom = [387,116,398,127,351,127,362,116];
+				var BottomLeft = [356,89,361,94,361,116,351,125,351,93];
+				var TopLeft = [351,51,361,61,361,61,361,83,356,88,351,83];
+
+				// var Top = [416,50,427,60,451,60,463,50,416,50];
+				// var TopRight = [464,50,464,82,458,88,453,83,453,60];
+				// var BottomRight = [464,95,464,126,453,116,453,94,458,89];
+				// var Middle = [457,88,452,93,427,93,422,88,427,83,452,83];
+				// var Bottom = [452,116,463,127,416,127,427,116];
+				// var BottomLeft = [421,89,426,94,426,116,416,125,416,93];
+				// var TopLeft = [416,51,426,61,426,61,426,83,421,88,416,83];
 
 				this.getScore = function() {
 
@@ -166,65 +190,102 @@
 
 				this.updateScore = function() {
 
+					if (_player == '1') {
+						left = 0;
+						right = 65;
+					}
+					else {
+						left = 200;
+						right = 265;	
+					}
+
 					switch (_currentScore) {
 						case 0:
 							self.clearScore();
 							scoreCoordArray = [Top, TopRight, BottomRight,  Bottom, BottomLeft, TopLeft];
-							self.drawScore();
+							self.drawScore(left);
+							scoreCoordArray = [Top, TopRight, BottomRight,  Bottom, BottomLeft, TopLeft];
+							self.drawScore(right);
 							self.incrementScore();
 						break;
 						case 1: 
 							self.clearScore();
+							scoreCoordArray = [Top, TopRight, BottomRight,  Bottom, BottomLeft, TopLeft];
+							self.drawScore(left);
 							scoreCoordArray = [TopRight, BottomRight];
-							self.drawScore();
+							self.drawScore(right);
 							self.incrementScore();
 						break;
 						case 2: 
 							self.clearScore();
+							scoreCoordArray = [Top, TopRight, BottomRight,  Bottom, BottomLeft, TopLeft];
+							self.drawScore(left);
 							scoreCoordArray = [Top, TopRight, Middle, BottomLeft, Bottom];
-							self.drawScore();
+							self.drawScore(right);
 							self.incrementScore();
 						break;
 						case 3: 
 							self.clearScore();
+							scoreCoordArray = [Top, TopRight, BottomRight,  Bottom, BottomLeft, TopLeft];
+							self.drawScore(left);
 							scoreCoordArray = [Top, TopRight, BottomRight, Middle, Bottom];
-							self.drawScore();
+							self.drawScore(right);
 							self.incrementScore();
 						break;
 						case 4:
 							self.clearScore();
+							scoreCoordArray = [Top, TopRight, BottomRight,  Bottom, BottomLeft, TopLeft];
+							self.drawScore(left);
 							scoreCoordArray = [TopRight, BottomRight, Middle, TopLeft];
-							self.drawScore();
+							self.drawScore(right);
 							self.incrementScore();
 						break;
 						case 5:
 							self.clearScore();
+							scoreCoordArray = [Top, TopRight, BottomRight,  Bottom, BottomLeft, TopLeft];
+							self.drawScore(left);
 							scoreCoordArray = [Top, TopLeft, Middle, BottomRight, Bottom];
-							self.drawScore();
+							self.drawScore(right);
 							self.incrementScore();
 						break;
 						case 6:
 							self.clearScore();
+							scoreCoordArray = [Top, TopRight, BottomRight,  Bottom, BottomLeft, TopLeft];
+							self.drawScore(left);
 							scoreCoordArray = [Top, BottomRight, Middle, Bottom, BottomLeft, TopLeft];
-							self.drawScore();
+							self.drawScore(right);
 							self.incrementScore();
 						break;
 						case 7:
 							self.clearScore();
+							scoreCoordArray = [Top, TopRight, BottomRight,  Bottom, BottomLeft, TopLeft];
+							self.drawScore(left);
 							scoreCoordArray = [Top, TopRight, BottomRight];
-							self.drawScore();
+							self.drawScore(right);
 							self.incrementScore();
 						break;
 						case 8:
 							self.clearScore();
+							scoreCoordArray = [Top, TopRight, BottomRight,  Bottom, BottomLeft, TopLeft];
+							self.drawScore(left);
 							scoreCoordArray = [Top, TopRight, BottomRight, Middle, Bottom, BottomLeft, TopLeft];
-							self.drawScore();
+							self.drawScore(right);
 							self.incrementScore();
 						break;
 						case 9:
 							self.clearScore();
+							scoreCoordArray = [Top, TopRight, BottomRight,  Bottom, BottomLeft, TopLeft];
+							self.drawScore(left);
 							scoreCoordArray = [Top, TopRight, Middle, BottomRight, TopLeft];
-							self.drawScore();
+							self.drawScore(right);
+							self.incrementScore();
+						break;
+						case 10:
+							self.clearScore();
+							scoreCoordArray = scoreCoordArray = [TopRight, BottomRight];
+							self.drawScore(left);
+							scoreCoordArray = [Top, TopRight, BottomRight,  Bottom, BottomLeft, TopLeft];
+							self.drawScore(right);
 							self.incrementScore();
 						break;
 
@@ -235,37 +296,37 @@
 
 	      			this.clearScore = function() {
 
-					if (_player == 'left') {
-							_context.clearRect(416, 50, 48, 80);}
+					if (_player == '1') {
+						_context.clearRect(416, 50, 48, 80);
+						_context.clearRect(351, 50, 48, 80);
+					}
 					else _context.clearRect(0, 0, 0, 0);
-
-										// context.beginPath();
-				      //       context.rect(416, 50, 48, 76);
-				      //       context.fillStyle = 'rgb(255,255,255)';
-				      //       context.fill();
 				           return;
 				}	
 
-				this.drawScore = function () {
+				this.drawScore = function (position) {
 
+			
+					//The outer loop moves each array in the multi-dimensional scoreCoordArray into the tempArray
 					for (var index = 0; index < scoreCoordArray.length; index++) {
+
 
 						tempArray = scoreCoordArray[index];
 
 						_context.beginPath();
 
-
+						//The inner loop takes each tempArray elements and 
 						for (var counter = 0; counter < tempArray.length - 1; counter += 2) {
-						
+
 							if (counter == 0 || counter == 1 ) {
 
 							nextVal = counter + 1;
 
-							_context.moveTo(tempArray[counter], tempArray[nextVal]);	
+							_context.moveTo(tempArray[counter] + position, tempArray[nextVal]);	
 							}
 							else {
 							nextVal = counter + 1;
-							_context.lineTo(tempArray[counter], tempArray[nextVal]);
+							_context.lineTo(tempArray[counter]  + position, tempArray[nextVal]);
 
 							}
 
@@ -389,11 +450,12 @@
 						          }
 						           else {
 						           	self.clearBall();
-						           	if(leftScore.getScore() < 9) {
-						           		leftScore.updateScore();
+						           	z.play();
+						           	if(leftScore.getScore() < 10) {
+						           		leftScore.updateScore(1);
 					           		} 
 						           	else {
-						           		leftScore.updateScore();
+						           		leftScore.updateScore(1);
 						           		alert ('game over: Right Player Wins!!!!!!!');
 					           		} 
 							          clearInterval(endInterval);
@@ -455,6 +517,7 @@
 						          }
 						          else {
 							          self.clearBall();
+							          z.play();
 							          clearInterval(endInterval);
 						          }
 					      	}
@@ -466,56 +529,55 @@
 			//End Ball
 			function Raquet(context, canvas) {
 
-				var self = this;
-				var _context;
+				this._context = 0;
 				var _canvas;
-				var _xCoordsRaquet;
-				var _yCoordsRaquet;
+				// var this._xCoordsRaquet;
+				// var this._yCoordsRaquet;
 
 				this.yCoords = function(){
-					return _yCoordsRaquet;
+					return this._yCoordsRaquet;
 				}
 				this.xCoords = function(){
-					return _xCoordsRaquet;
+					return this._xCoordsRaquet;
 				}
 
-				this.drawInitialRaquet = function(context, canvas, xCoordsRaquet, yCoordsRaquet) {
-
+				Raquet.prototype.drawInitialRaquet = function(context, canvas, xCoordsRaquet, yCoordsRaquet, player) {
+					
 					_context = context;
-					_canvas = canvas;
-					_xCoordsRaquet = xCoordsRaquet;
-					_yCoordsRaquet = yCoordsRaquet;
+					this._canvas = canvas;
+					this._xCoordsRaquet = xCoordsRaquet;
+					this._yCoordsRaquet = yCoordsRaquet;
 				 
-				          self.drawRaquet(); 
+				            this.drawRaquet(); 
 				}
 
-				this.drawRaquet = function() {
+				Raquet.prototype.drawRaquet = function() {
 				          context.beginPath();
-				          context.rect(_xCoordsRaquet, _yCoordsRaquet, 10, 60);
+				          context.rect(this._xCoordsRaquet, this._yCoordsRaquet, 10, 60);
 				          context.fillStyle = 'rgb(255,255,255)';
 				          context.fill();
 				          return;
 				}
 
-	      			this.clearRaquet = function() {
-					context.clearRect(_xCoordsRaquet-2, _yCoordsRaquet-4, 11, 60);
+	      			Raquet.prototype.clearRaquet = function() {
+					context.clearRect(this._xCoordsRaquet-2, this._yCoordsRaquet-4, 11, 60);
 					context.beginPath();
-				            context.rect(_xCoordsRaquet-2, _yCoordsRaquet-4, 15, 66);
+				            context.rect(this._xCoordsRaquet-2, this._yCoordsRaquet-4, 15, 66);
 				            context.fillStyle = 'rgb(0,0,0)';
 				            context.fill();
 				           return;
 				}
 
-				this.moveRaquet = function(direction) {
-					if (_yCoordsRaquet >= -1 && direction == 'up' ) {
-						self.clearRaquet();
-				            	_yCoordsRaquet -= 10;
-				            	self.drawRaquet();
+				Raquet.prototype.moveRaquet = function(direction) {
+					if (this._yCoordsRaquet >= -1 && direction == 'up' ) {
+						this.clearRaquet();
+				            	this._yCoordsRaquet -= 10;
+				            	this.drawRaquet();
 					}
-					if ((_yCoordsRaquet+60) <= _canvas.height && direction == 'down' ) {
-						self.clearRaquet();
-				            	_yCoordsRaquet += 10;
-				            	self.drawRaquet();
+					if ((this._yCoordsRaquet+60) <= this._canvas.height && direction == 'down' ) {
+						this.clearRaquet();
+				            	this._yCoordsRaquet += 10;
+				            	this.drawRaquet();
 				          }
 				}
 			}
