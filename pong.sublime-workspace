@@ -4,6 +4,34 @@
 		"selected_items":
 		[
 			[
+				"up",
+				"updateScore"
+			],
+			[
+				"draw",
+				"drawScore"
+			],
+			[
+				"proto",
+				"prototype"
+			],
+			[
+				"prot",
+				"prototype"
+			],
+			[
+				"pro",
+				"prototype"
+			],
+			[
+				"ra",
+				"Raquet"
+			],
+			[
+				"pr",
+				"prototype"
+			],
+			[
 				"angle",
 				"angleX"
 			],
@@ -30,10 +58,6 @@
 			[
 				"x",
 				"xCoordsRaquet"
-			],
-			[
-				"draw",
-				"drawInitialRaquet"
 			],
 			[
 				"ange",
@@ -107,7 +131,7 @@
 			"file": "pong.html",
 			"settings":
 			{
-				"buffer_size": 14902,
+				"buffer_size": 20374,
 				"line_ending": "Windows"
 			}
 		}
@@ -152,10 +176,12 @@
 	},
 	"file_history":
 	[
-		"/C/Users/Derrick/Desktop/delete.html",
-		"/C/xampp/htdocs/demos/HTML_Canvas_Element/Pong/pong.html",
-		"/C/xampp/htdocs/demos/HTML_Canvas_Element/Pong/delete1.html",
 		"/C/xampp/htdocs/demos/HTML_Canvas_Element/Pong/delete.html",
+		"/C/xampp/htdocs/tuskegee/blog.php",
+		"/C/xampp/htdocs/tuskegee/blog.html",
+		"/C/xampp/htdocs/demos/HTML_Canvas_Element/Pong/pong.html",
+		"/C/Users/Derrick/Desktop/delete.html",
+		"/C/xampp/htdocs/demos/HTML_Canvas_Element/Pong/delete1.html",
 		"/C/xampp/htdocs/tuskegee/index.php",
 		"/C/xampp/htdocs/tuskegee/redtailmontgomery.html",
 		"/C/Users/Derrick/Desktop/Delete.html",
@@ -164,7 +190,6 @@
 		"/C/xampp/htdocs/tuskegee/Delete1.html",
 		"/C/xampp/htdocs/tuskegee/Delete2.html",
 		"/C/xampp/htdocs/tuskegee/Delete.html",
-		"/C/xampp/htdocs/tuskegee/blog.html",
 		"/C/xampp/htdocs/demos/HTML_Canvas_Element/Pong/pong.sublime-project",
 		"/C/xampp/htdocs/demos/HTML_Canvas_Element/Circle/circle.html",
 		"/C/Users/Derrick/AppData/Roaming/Sublime Text 2/Packages/User/Chrome.sublime-build",
@@ -272,6 +297,32 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"byid",
+			"play()",
+			"v.",
+			"v.play",
+			"updateScore",
+			"self",
+			"_xCoordsRaquet",
+			"this._xCoordsRaquet",
+			"_yCoordsRaquet",
+			"moveball",
+			"left",
+			"Left",
+			"left",
+			"Left",
+			"left",
+			"Left",
+			"left",
+			"Left",
+			"left",
+			"Left",
+			"left",
+			"case",
+			"raquet",
+			"this",
+			"self",
+			"this",
 			");\n",
 			"test",
 			"counter",
@@ -388,15 +439,15 @@
 					"file": "pong.html",
 					"settings":
 					{
-						"buffer_size": 14902,
+						"buffer_size": 20374,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4548,
-								4548
+								1566,
+								1566
 							]
 						],
 						"settings":
@@ -405,7 +456,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 2375.0,
+						"translation.y": 511.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
