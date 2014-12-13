@@ -39,17 +39,9 @@
 		</div>
 		<script>
 			var canvas = document.getElementById('myCanvas');
-			// var source_v = document.createElement('source');
-			// var source_z = document.createElement('source');
-
-			// source_v.src = "18790.wav";
-			// source_z.src = "score.mp3";
 
 			var v = document.getElementsByClassName("hit")[0];
 			var z = document.getElementsByClassName("score")[0];
-
-			// v.appendChild(source_v);
-			// z.appendChild(source_z);
 
 			var xCoordsBall = canvas.width/2;
 			var yCoordsBall = canvas.height/2;
@@ -63,8 +55,7 @@
 			var context = canvas.getContext('2d');
 			var radius = 6;
 
-
-			var rightScore = new Score(context, 'right'); 
+			var rightScore = new Score(context, 2); 
 			var leftScore = new Score(context, 1);
 
 			var leftRaquet = new Raquet(context, canvas);
@@ -75,6 +66,7 @@
 			rightRaquet.drawInitialRaquet(context, canvas, canvas.width/1.1, canvas.height/2  - 30, 'right');
 			leftRaquet.drawInitialRaquet(context, canvas, canvas.width/14, canvas.height/2 - 90, 'left');
 
+			rightScore.updateScore();
 			leftScore.updateScore();
 
 			var map = {38: false, 81: false, 40: false, 90: false};
@@ -142,11 +134,16 @@
 			function serveBall(){	
 			leftScore.drawScore(context);
 			leftRaquet.clearRaquet();
+
+			rightScore.drawScore(context);
 			rightRaquet.clearRaquet();
+
 			leftRaquet.drawInitialRaquet(context, canvas, canvas.width/14, canvas.height/2 - 90);
-			rightRaquet.drawInitialRaquet(context, canvas, canvas.width/1.1, canvas.height/2  - 30);	
+			rightRaquet.drawInitialRaquet(context, canvas, canvas.width/1.1, canvas.height/2  - 30);
+
 			gameBall.drawInitialBall(context, canvas, canvas.width/2, canvas.height/2);
 			gameBall.moveBall(2, Math.random(), leftRaquet, rightRaquet);
+			// gameBall.clearBall()
 			}
 			//End servBall
 			function Score(context, player) {
@@ -195,102 +192,95 @@
 						right = 65;
 					}
 					else {
-						left = 200;
-						right = 265;	
+						left = 720;
+						right = 785;	
+					}
+
+					if(_currentScore <= 9) {
+						self.clearScore();
+						scoreCoordArray = [Top, TopRight, BottomRight,  Bottom, BottomLeft, TopLeft];
+						self.drawScore(left);
+					}
+					else if(_currentScore <= 19) {
+						self.clearScore();
+						scoreCoordArray = [TopRight, BottomRight];
+						self.drawScore(left);
+					}
+					else if (_currentScore <= 25) {
+						self.clearScore();
+						scoreCoordArray = [Top, TopRight, Middle, BottomLeft, Bottom];
+						self.drawScore(left);
 					}
 
 					switch (_currentScore) {
 						case 0:
-							self.clearScore();
-							scoreCoordArray = [Top, TopRight, BottomRight,  Bottom, BottomLeft, TopLeft];
-							self.drawScore(left);
+						case 10:
+						case 20:
 							scoreCoordArray = [Top, TopRight, BottomRight,  Bottom, BottomLeft, TopLeft];
 							self.drawScore(right);
-							self.incrementScore();
+							// self.incrementScore();
 						break;
-						case 1: 
-							self.clearScore();
-							scoreCoordArray = [Top, TopRight, BottomRight,  Bottom, BottomLeft, TopLeft];
-							self.drawScore(left);
+						case 1:
+						case 11:
+						case 21: 
 							scoreCoordArray = [TopRight, BottomRight];
 							self.drawScore(right);
-							self.incrementScore();
+							// self.incrementScore();
 						break;
-						case 2: 
-							self.clearScore();
-							scoreCoordArray = [Top, TopRight, BottomRight,  Bottom, BottomLeft, TopLeft];
-							self.drawScore(left);
+						case 2:
+						case 12:
+						case 22: 
 							scoreCoordArray = [Top, TopRight, Middle, BottomLeft, Bottom];
 							self.drawScore(right);
-							self.incrementScore();
+							// self.incrementScore();
 						break;
-						case 3: 
-							self.clearScore();
-							scoreCoordArray = [Top, TopRight, BottomRight,  Bottom, BottomLeft, TopLeft];
-							self.drawScore(left);
+						case 3:
+						case 13:
+						case 23:  
 							scoreCoordArray = [Top, TopRight, BottomRight, Middle, Bottom];
 							self.drawScore(right);
-							self.incrementScore();
+							// self.incrementScore();
 						break;
 						case 4:
-							self.clearScore();
-							scoreCoordArray = [Top, TopRight, BottomRight,  Bottom, BottomLeft, TopLeft];
-							self.drawScore(left);
+						case 14:
+						case 24:
 							scoreCoordArray = [TopRight, BottomRight, Middle, TopLeft];
 							self.drawScore(right);
-							self.incrementScore();
+							// self.incrementScore();
 						break;
 						case 5:
-							self.clearScore();
-							scoreCoordArray = [Top, TopRight, BottomRight,  Bottom, BottomLeft, TopLeft];
-							self.drawScore(left);
+						case 15:
 							scoreCoordArray = [Top, TopLeft, Middle, BottomRight, Bottom];
 							self.drawScore(right);
-							self.incrementScore();
+							// self.incrementScore();
 						break;
 						case 6:
-							self.clearScore();
-							scoreCoordArray = [Top, TopRight, BottomRight,  Bottom, BottomLeft, TopLeft];
-							self.drawScore(left);
+						case 16:
 							scoreCoordArray = [Top, BottomRight, Middle, Bottom, BottomLeft, TopLeft];
 							self.drawScore(right);
-							self.incrementScore();
+							// self.incrementScore();
 						break;
 						case 7:
-							self.clearScore();
-							scoreCoordArray = [Top, TopRight, BottomRight,  Bottom, BottomLeft, TopLeft];
-							self.drawScore(left);
+						case 17:
 							scoreCoordArray = [Top, TopRight, BottomRight];
 							self.drawScore(right);
-							self.incrementScore();
+							// self.incrementScore();
 						break;
 						case 8:
-							self.clearScore();
-							scoreCoordArray = [Top, TopRight, BottomRight,  Bottom, BottomLeft, TopLeft];
-							self.drawScore(left);
+						case 18:
 							scoreCoordArray = [Top, TopRight, BottomRight, Middle, Bottom, BottomLeft, TopLeft];
 							self.drawScore(right);
-							self.incrementScore();
+							// self.incrementScore();
 						break;
 						case 9:
-							self.clearScore();
-							scoreCoordArray = [Top, TopRight, BottomRight,  Bottom, BottomLeft, TopLeft];
-							self.drawScore(left);
+						case 19:
+
 							scoreCoordArray = [Top, TopRight, Middle, BottomRight, TopLeft];
 							self.drawScore(right);
-							self.incrementScore();
-						break;
-						case 10:
-							self.clearScore();
-							scoreCoordArray = scoreCoordArray = [TopRight, BottomRight];
-							self.drawScore(left);
-							scoreCoordArray = [Top, TopRight, BottomRight,  Bottom, BottomLeft, TopLeft];
-							self.drawScore(right);
-							self.incrementScore();
-						break;
 
-
+						break;
 					}
+					self.incrementScore();
 					return;
 				}
 
@@ -300,7 +290,10 @@
 						_context.clearRect(416, 50, 48, 80);
 						_context.clearRect(351, 50, 48, 80);
 					}
-					else _context.clearRect(0, 0, 0, 0);
+					else {	_context.clearRect(1136, 50, 48, 80);
+						_context.clearRect(1071, 50, 48, 80);
+					}
+					// else _context.clearRect(0, 0, 0, 0);
 				           return;
 				}	
 
@@ -372,7 +365,7 @@
 				           _context.arc(_xCoordsBall, _yCoordsBall, radius + 4, 0, 2 * Math.PI, false);
 				           _context.fillStyle = 'rgb(0,0,0)';
 				           _context.fill();
-				           return;
+				           return {xCoords : _xCoordsBall, yCoords : _yCoordsBall};
 			           }
 
        				Ball.prototype.moveBall = function(angleX, angleY, leftRaquet, rightRaquet) {
@@ -451,7 +444,7 @@
 						           else {
 						           	self.clearBall();
 						           	z.play();
-						           	if(leftScore.getScore() < 10) {
+						           	if(leftScore.getScore() < 25) {
 						           		leftScore.updateScore(1);
 					           		} 
 						           	else {
@@ -518,6 +511,13 @@
 						          else {
 							          self.clearBall();
 							          z.play();
+						          	          if(rightScore.getScore() < 25) {
+								           	rightScore.updateScore(1);
+						           		} 
+							           	else {
+						           		rightScore.updateScore(2);
+						           		alert ('game over: left Player Wins!!!!!!!');
+					           		} 
 							          clearInterval(endInterval);
 						          }
 					      	}
