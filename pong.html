@@ -1,6 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 	<header>
+		<link rel="styesheet" type="text/css" href="css/html5cssreset.css" />
 		<style>
 			body {
 				margin: 0px;
@@ -18,14 +19,93 @@
 				border-color: rgb(0,0,0);
 				margin: auto 0;	
 			}
+			.scorecard-div  {
+				color: white;
+			}
+			.scorecard-div .scorecard-section .scorecard-header .gameinfo-h2,
+			.scorecard-div .scorecard-section .scorecard-header .game {
+				width: 4.5em;
+				display: inline-block;
+			}
+			.scorecard-div .header  {
+				height: 4em;
+				max-width: 100%;
+				border-radius: .1em .1em 0 0;
+				background-color: black;
+			}
+			.scorecard-div .body .scorecolumn  {
+				background-color: black;
+			}
+			.scorecard-div .footer  {
+				height: 4em;
+				border-radius: 0 0 .1em .1em ;
+				background-color: black;	
+			}
+			.scorecard-div .scorecard-section .scorecard-footer,
+			.scorecard-div .scorecard-section .scorecard-h1 {
+				padding-top: 1.1em;
+			}
+			 .button
+            { background-image: url (/images/button-Erase-All-Games.png) no-repeat;
+			  }
+/*			.centered  {
+  				position: fixed;
+  				top: 50%;
+  				left: 46%;
+  				transform: translate(-50%, -50%);
+			}*/
 		</style>
 		<noscript style="font-size:75px;">Sorry, your browser does not support JavaScript!</noscript>
 	</header>
-	<body>			
+	<body onLoad="checkCookie()">			
 		<h1 style="margin:0; padding:0;color:green;margin-left:4em;">PONG programmed by Derrick Douglass <a href="http:\\www.derrickdouglassdesigns.com">www.derrickdouglassdesigns.com</a>:: BETA VERSION</h1>
 		<div class='container centered'>
-			<form style="margin-top:5px;"><input type="button" value="serve" onclick="serveBall();" /></form>
+			<form style="margin-top:5px;"><input id="servebutton" type="button" value="serve" onclick="serveBall();" disabled/></form>
 			<br />
+			<div class="scorecard-div centered" id="test">
+			<section class="scorecard-section header" >
+				<h1 class="scorecard-h1 centered" style="top:0;">SCORECARD</h1>
+			</section>
+			<section class="scorecard-section body">
+				<section class="scorecolumn" style="float:left; width:20%;">
+					<header class="scorecard-header" id="gamedate">
+						<h2 class="gameinfo-h2" id="game">Game</h2>
+						<br/>
+					</header>
+				</section>
+				<section class="scorecolumn" style="float:left; width:20%">
+					<header class="scorecard-header"  id="leftplayer">
+						<h2 class="gameinfo-h2">Player</h2>
+						<br/>
+					</header>
+				</section>
+				<section class="scorecolumn" style="float:left; width:20%">
+					<header class="scorecard-header"  id="leftscore">
+						<h2 class="gameinfo-h2">Score</h2>
+						<br/>
+					</header>
+				</section>
+				<section class="scorecolumn" style="float:left; width:20%">
+					<header class="scorecard-header" id="rightplayer">
+						<h2 class="gameinfo-h2">Player</h2>
+						<br/>
+					</header>
+				</section>
+				<section class="scorecolumn" style="float:left; width:20%">
+					<header class="scorecard-header" id="rightscore">
+						<h2 class="gameinfo-h2">Score</h2>
+						<br/>
+					</header>
+				</section>
+			</section>
+			<section class="scorecard-section footer" style="clear:both;">
+				<footer class="scorecard-footer">
+					<input type="image" src="http://localhost/demos/HTML_Canvas_Element/Pong/images/button-Erase-All-Games.png" />
+					<input type="image" src="http://localhost/demos/HTML_Canvas_Element/Pong/images/buttons-Close-Form.png" autofocus onclick="test();"/>
+				</footer>
+			</section>
+		</div>
+			<!--Canvas tag-->
 			<canvas id="myCanvas" width="1500%" height="675%" style="background-color: #000;" tabindex='1'></canvas>
 				<!--This section plays the MorseCode audio file-->
 			<audio class="hit">
@@ -37,6 +117,98 @@
 				<p>Your browser does not support the audio element.</p>
 			</audio>
 		</div>
+		<script>
+		function test() {
+		// alert('here'); 
+		document.getElementById("test").style.display = 'none';
+		document.getElementById("servebutton").removeAttribute("disabled");
+	}
+		</script>
+		<script>
+			function checkCookie(){
+				var cookieEnabled=(navigator.cookieEnabled)? true : false   
+			            if (typeof navigator.cookieEnabled=="undefined" && !cookieEnabled){ 
+					document.cookie="testcookie";
+					cookieEnabled=(document.cookie.indexOf("testcookie")!=-1)? true : false;
+				}
+			    return (cookieEnabled)?true:showCookieFail();
+			}
+
+			function showCookieFail(){
+				alert('please turn on cookies');
+			}
+		</script>
+		<!-- This section creates the cookie and places the contents into discrete objects -->
+		<script>
+			document.cookie = "game=,gamedate,12/29/1108:13,leftplayer,rachelreed1,leftscore,01,rightplayer,johnreed1,rightscore,01,endofline,endofline,gamedate,12/29/1209:13,leftplayer,rachelreed2,leftscore,02,rightplayer,johnreed2,rightscore,02,endofline,endofline,gamedate,12/29/1309:13,leftplayer,rachelreed3,leftscore,03,rightplayer,johnreed3,rightscore,03,endofline,endofline,gamedate,12/29/1809:13,leftplayer,rachelreed4,leftscore,04,rightplayer,johnreed4,rightscore,04,endofline,endofline,gamedate,12/29/1409:13,leftplayer,rachelreed5,leftscore,05,rightplayer,johnreed5,rightscore,05,endofline,endofline,gamedate,12/29/1609:13,leftplayer,rachelreed6,leftscore,06,rightplayer,johnreed6,rightscore,06,endofline,endofline,gamedate,12/29/1408:13,leftplayer,rachelreed7,leftscore,07,rightplayer,johnreed7,rightscore,07,endofline,endofline,gamedate,12/29/1407:13,leftplayer,rachelreed8,leftscore,08,rightplayer,johnreed8,rightscore,08,endofline,endofline,gamedate,12/29/1406:13,leftplayer,rachelreed9,leftscore,09,rightplayer,johnreed9,rightscore,09,endofline,endofline,gamedate,12/29/1405:13,leftplayer,rachelreed10,leftscore,10,rightplayer,johnreed10,rightscore,10;max-age="+(60*60*24*365);
+
+			// Read the cookie property. This returns all cookies for this document
+			var allcookies = document.cookie;
+			var allgames = [];
+			var str = "";
+			var value = "";
+			var endofline = "endofline";
+			var x = "";
+
+			var gameNum = 1; // This variable assigns a unique integer for each game played
+
+			var game1 = new Object(); var game2 = new Object(); var game3 = new Object(); var game4 = new Object(); var game5 = new Object();
+			var game6 = new Object(); var game7 = new Object(); var game8 = new Object(); var game9 = new Object();  var game10 = new Object();
+
+			str = allcookies.split(","); //split allcookies string value in name/value pairs using the comma "," as the delimeter
+			// alert(endofline);
+			if (str.indexOf(endofline) == -1) throw new Error("You must have two endofline delimeters for each game played");  //Exception handling
+
+			for (var i = 1; i < str.length; i+=2) {
+
+				//The 'endofline' value is the last name/value pair for each game. 
+				//Note: because of the for/loop, you must have two 'endofline' values for each game or this process will fail
+				
+				 if (str[i] != endofline) { 
+
+				var tempIndex = i + 1;
+
+				name = str[i];
+				value = str[tempIndex];
+
+					switch (gameNum) {
+					case(1): game1[name] = value; allgames[1] = game1; break;	
+					case(2): game2[name] = value; allgames[2] = game2; break;
+					case(3): game3[name] = value; allgames[3] = game3; break;	
+					case(4): game4[name] = value; allgames[4] = game4; break;	
+					case(5): game5[name] = value; allgames[5] = game5; break;	
+					case(6): game6[name] = value; allgames[6] = game6; break;	
+					case(7): game7[name] = value; allgames[7] = game7; break;	
+					case(8): game8[name] = value; allgames[8] = game8; break;	
+					case(9): game9[name] = value; allgames[9] = game9; break;	
+			                        case(10): game10[name] = value; allgames[10] = game10; break;
+				}
+			}
+				else {
+					var tempIndex = i + 1;
+					if (str[tempIndex] !=  endofline) throw new Error("You must have two endofline delimeters for each game played");  //Exception handling
+					gameNum++;
+				}
+			}
+		</script>
+		<script>
+			var gamefields = ["gamedate", "leftplayer","leftscore","rightplayer","rightscore"];
+
+			for (var outerindex = 1; outerindex<=10; outerindex++) { 
+				for (var innerindex = 0; innerindex<=4; innerindex++) { 
+				var para = document.createElement("span");
+				para.setAttribute("class", gamefields[innerindex]);
+				var node = document.createTextNode(allgames[outerindex][gamefields[innerindex]]);   //Games is hard coded here.....Change when testing.....
+				para.appendChild(node);
+				var element = document.getElementById(gamefields[innerindex]);
+				element.appendChild(para);
+
+				var br = document.createElement("br");
+				element.appendChild(br);
+				}
+			}
+		</script>
+		<!-- This section is for the canvas tag -->
 		<script>
 			var canvas = document.getElementById('myCanvas');
 
@@ -195,7 +367,6 @@
 						left = 720;
 						right = 785;	
 					}
-
 					if(_currentScore <= 9) {
 						self.clearScore();
 						scoreCoordArray = [Top, TopRight, BottomRight,  Bottom, BottomLeft, TopLeft];
@@ -211,7 +382,6 @@
 						scoreCoordArray = [Top, TopRight, Middle, BottomLeft, Bottom];
 						self.drawScore(left);
 					}
-
 					switch (_currentScore) {
 						case 0:
 						case 10:
@@ -303,9 +473,7 @@
 					//The outer loop moves each array in the multi-dimensional scoreCoordArray into the tempArray
 					for (var index = 0; index < scoreCoordArray.length; index++) {
 
-
 						tempArray = scoreCoordArray[index];
-
 						_context.beginPath();
 
 						//The inner loop takes each tempArray elements and 
@@ -322,7 +490,6 @@
 							_context.lineTo(tempArray[counter]  + position, tempArray[nextVal]);
 
 							}
-
 						}
 						_context.closePath();
 						_context.fillStyle = "#FFFFFF";
@@ -444,11 +611,11 @@
 						           else {
 						           	self.clearBall();
 						           	z.play();
-						           	if(leftScore.getScore() < 25) {
-						           		leftScore.updateScore(1);
+						           	if(rightScore.getScore() < 25) {
+						           		rightScore.updateScore(1);
 					           		} 
 						           	else {
-						           		leftScore.updateScore(1);
+						           		rightScore.updateScore(1);
 						           		alert ('game over: Right Player Wins!!!!!!!');
 					           		} 
 							          clearInterval(endInterval);
@@ -508,14 +675,14 @@
 								          	}
 							          }
 						          }
-						          else {
+						            else {
 							          self.clearBall();
 							          z.play();
-						          	          if(rightScore.getScore() < 25) {
-								           	rightScore.updateScore(1);
+						          	          if(leftScore.getScore() < 25) {
+								           	leftScore.updateScore(1);
 						           		} 
 							           	else {
-						           		rightScore.updateScore(2);
+						           		leftScore.updateScore(2);
 						           		alert ('game over: left Player Wins!!!!!!!');
 					           		} 
 							          clearInterval(endInterval);
@@ -523,13 +690,12 @@
 					      	}
 
 					}, 3);
-
 				}
 			}
 			//End Ball
 			function Raquet(context, canvas) {
 
-				this._context = 0;
+				                                 this._context = 0;
 				var _canvas;
 				// var this._xCoordsRaquet;
 				// var this._yCoordsRaquet;
@@ -551,7 +717,7 @@
 				            this.drawRaquet(); 
 				}
 
-				Raquet.prototype.drawRaquet = function() {
+	                                    Raquet.prototype.drawRaquet = function() {
 				          context.beginPath();
 				          context.rect(this._xCoordsRaquet, this._yCoordsRaquet, 10, 60);
 				          context.fillStyle = 'rgb(255,255,255)';
@@ -582,7 +748,6 @@
 				}
 			}
 			//End Raquet
-
 		</script>
 	</body>
 </html>
