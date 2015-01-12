@@ -4,6 +4,42 @@
 		"selected_items":
 		[
 			[
+				"in",
+				"index"
+			],
+			[
+				"bord",
+				"border-color"
+			],
+			[
+				"all",
+				"allgames"
+			],
+			[
+				"inline",
+				"inline-block"
+			],
+			[
+				"new",
+				"newGameIndex"
+			],
+			[
+				"get",
+				"getNumofChars"
+			],
+			[
+				"index",
+				"indexOf"
+			],
+			[
+				"s",
+				"start"
+			],
+			[
+				"clear",
+				"clearBall"
+			],
+			[
 				"up",
 				"updateScore"
 			],
@@ -128,10 +164,18 @@
 	"buffers":
 	[
 		{
+			"file": "/C/xampp/htdocs/Web Tools/Javascript/getBrowserName",
+			"settings":
+			{
+				"buffer_size": 576,
+				"line_ending": "Windows"
+			}
+		},
+		{
 			"file": "pong.html",
 			"settings":
 			{
-				"buffer_size": 20374,
+				"buffer_size": 27661,
 				"line_ending": "Windows"
 			}
 		}
@@ -177,9 +221,13 @@
 	"file_history":
 	[
 		"/C/xampp/htdocs/demos/HTML_Canvas_Element/Pong/delete.html",
+		"/C/xampp/htdocs/demos/HTML_Canvas_Element/Pong/css/stylesheet.css",
+		"/C/xampp/htdocs/demos/HTML_Canvas_Element/Pong/css/stylesheet.scss",
+		"/C/xampp/htdocs/demos/HTML_Canvas_Element/Pong/pong.html",
+		"/C/xampp/htdocs/code utility library/Javascript/getBrowserName",
+		"/C/Users/Derrick/Desktop/Raphaël · Australia.html",
 		"/C/xampp/htdocs/tuskegee/blog.php",
 		"/C/xampp/htdocs/tuskegee/blog.html",
-		"/C/xampp/htdocs/demos/HTML_Canvas_Element/Pong/pong.html",
 		"/C/Users/Derrick/Desktop/delete.html",
 		"/C/xampp/htdocs/demos/HTML_Canvas_Element/Pong/delete1.html",
 		"/C/xampp/htdocs/tuskegee/index.php",
@@ -297,6 +345,33 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"serveBall",
+			"serveBall()",
+			"serveball",
+			"();",
+			"gameBall",
+			"serveball",
+			"serveballl",
+			"serve",
+			"//",
+			"test",
+			"footer",
+			"09",
+			"game",
+			"leftplayer",
+			"rightplayer",
+			"endofline",
+			"border",
+			"			.",
+			"alert",
+			"obj",
+			".",
+			">",
+			"serveball",
+			"click",
+			"version",
+			"moveball",
+			"serveball",
 			"byid",
 			"play()",
 			"v.",
@@ -397,21 +472,7 @@
 			"e.",
 			"e",
 			"x",
-			"y",
-			"Coords",
-			"$file",
-			"file",
-			";\n",
-			"ruler",
-			"DERRICK",
-			"This",
-			"CCCLtv_half_moon_top",
-			"CCLtv_half_moon_top",
-			"CCCLtv_half_moon_top",
-			"gigawattgroup",
-			"<meta name=\"description\" content=\"Clean Cuts a leader in original music and sound design, we understand that technology is only as good as the people who use it. Cerebral Lounge a boutique-style, production and post-production company that specializes in network promos, commercials, and visual branding.\"/>",
-			"width",
-			"meta"
+			"y"
 		],
 		"highlight": false,
 		"in_selection": false,
@@ -419,6 +480,7 @@
 		"regex": true,
 		"replace_history":
 		[
+			",",
 			"",
 			"width"
 		],
@@ -431,23 +493,51 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "pong.html",
+					"file": "/C/xampp/htdocs/Web Tools/Javascript/getBrowserName",
 					"settings":
 					{
-						"buffer_size": 20374,
+						"buffer_size": 576,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1566,
-								1566
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "pong.html",
+					"settings":
+					{
+						"buffer_size": 27661,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								10367,
+								10367
 							]
 						],
 						"settings":
@@ -456,7 +546,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 511.0,
+						"translation.y": 4514.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"

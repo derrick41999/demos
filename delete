@@ -1,0 +1,30 @@
+<doctype>
+<html>
+<header></header
+<body></body>
+<script></script>
+
+// Create a cookie named score
+document.cookie = "score=" + document.lastModified + "; max-age=" + (60*60*24*365) + "; game-id=" + 123;
+
+// Create a cookie named derrick
+document.cookie = "derrick=" + document.lastModified + "; max-age=" + (60*60*24*365); 
+
+// Create a cooke name test
+document.cookie = "test=" + document.lastModified + "; max-age=" + (60*60*24*365); 
+
+// Read the cookie property. This returns all cookies for this document
+var allcookies = document.cookie;
+
+// Look for the start of the cookie named "score";
+// indexOf returns -1 if the value to search for never occurs.
+var pos = allcookies.indexOf("score=");
+
+// if we find a cookie by that name, extract and use it value
+if (pos != 1) {
+
+	// sdsdsdfsdfsdf
+	var start = pos + 8;
+	var end = allcookies
+}
+</html>
