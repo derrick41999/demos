@@ -7,6 +7,9 @@
 				margin: 0px;
 				padding: 0px;
 			}
+			.container .functionbuttonbar {
+				margin-top:2em;
+			}
 			.centered {
   				position: fixed;
   				top: 50%;
@@ -18,6 +21,15 @@
 				border-style: solid;
 				border-color: rgb(0,0,0);
 				margin: auto 0;	
+			}
+			.header-div > header > h1 {
+				margin: 0; 
+				padding: 0;
+				color: green;
+				margin-left: 4em; 
+				margin-bottom:4em;
+				font-family: georgia, serif;
+				font: georgia, serif;
 			}
 			.scorecard-div  {
 				color: white;
@@ -35,6 +47,18 @@
 			}
 			.scorecard-div .body .scorecolumn  {
 				background-color: black;
+				float: left; 
+				width: 20%;
+			}
+			.scorecard-div .gameover-section {
+				/*display: none;*/
+			}
+			.scorecard-div .gameover-section .gameover {
+			          color: white;
+			          font-size: 4em;
+			          position: absolute; 
+			          top: -375px; 
+			          left: -134px;"
 			}
 			.scorecard-div .footer  {
 				height: 4em;
@@ -45,100 +69,113 @@
 			.scorecard-div .scorecard-section .scorecard-h1 {
 				padding-top: 1.1em;
 			}
-			 .button
-            { background-image: url (/images/button-Erase-All-Games.png) no-repeat;
+			 .button { 
+			 	background-image: url (/images/button-Erase-All-Games.png) no-repeat;
 			  }
 /*			.centered  {
-  				position: fixed;
-  				top: 50%;
   				left: 46%;
-  				transform: translate(-50%, -50%);
 			}*/
 		</style>
 		<noscript style="font-size:75px;">Sorry, your browser does not support JavaScript!</noscript>
 	</header>
 	<body onLoad="checkCookie()">
-		<header>			
-			<h1 style="margin:0; padding:0;color:green;margin-left:4em;">PONG programmed by Derrick Douglass <a href="http:\\www.derrickdouglassdesigns.com">www.derrickdouglassdesigns.com</a>:: BETA VERSION
-			</h1>
-		</header>
+		<section class="header-div">
+			<header>			
+				<h1 >PONG programmed by Derrick Douglass <a href="http:\\www.derrickdouglassdesigns.com">www.derrickdouglassdesigns.com</a>:: BETA VERSION
+				</h1>
+			</header>
+		<section>
 		<section class="container centered" >
 			<!-- Game Buttons -->
-			<form style="margin-top:5px;">
-				<input id="servebutton" type="button" value="Serve Ball" onclick="serveBall();" />
+			<form class="functionbuttonbar">
+				<input id="servebutton" type="button" value="Serve Ball" onclick="serveBall();" autofocus/>
+				<input id="newgamebutton" type="button" value="New Game" onclick="" />
+				<input id="endgamebutton" type="button" value="End Game" onclick="" />
+				<input id="resumegamebutton" type="button" value="Resume Game" onclick="" />
 				<input id="scorebutton" type="button" value="Display Scoreboard" onclick="displayScoreboard();" />
 			</form>
 			<br />
 			<!-- Game Board -->
-			<section class="scorecard-div centered" id="test">
+			<section class="scorecard-div centered" id="scorecard-div">
 				<section class="scorecard-section header" >
-					<h1 class="scorecard-h1 centered" style="top:0;">SCORECARD</h1>
+					<header>
+						<h1 class="scorecard-h1 centered" style="top:0;">SCORECARD</h1>
+					</header>
 				</section>
 				<section class="scorecard-section body">
-					<section class="scorecolumn" style="float:left; width:20%;">
+					<section class="scorecolumn">
 						<header class="scorecard-header" id="gamedate">
 							<h2 class="gameinfo-h2" id="game">Game</h2>
 							<br/>
 						</header>
 					</section>
-					<section class="scorecolumn" style="float:left; width:20%">
+					<section class="scorecolumn">
 						<header class="scorecard-header"  id="leftplayer">
 							<h2 class="gameinfo-h2">Player</h2>
 							<br/>
 						</header>
 					</section>
-					<section class="scorecolumn" style="float:left; width:20%">
+					<section class="scorecolumn">
 						<header class="scorecard-header"  id="leftscore">
 							<h2 class="gameinfo-h2">Score</h2>
 							<br/>
 						</header>
 					</section>
-					<section class="scorecolumn" style="float:left; width:20%">
+					<section class="scorecolumn">
 						<header class="scorecard-header" id="rightplayer">
 							<h2 class="gameinfo-h2">Player</h2>
 							<br/>
 						</header>
 					</section>
-					<section class="scorecolumn" style="float:left; width:20%">
+					<section class="scorecolumn">
 						<header class="scorecard-header" id="rightscore">
 							<h2 class="gameinfo-h2">Score</h2>
 							<br/>
 						</header>
 					</section>
 				</section>
-				<section class="scorecard-section footer" style="clear:both;">
+				<section class="centered gameover-section"  id="gameover-section">
+					<p class="gameover" id="gameover">GAME OVER</p>
+				</section>
+				<section class="scorecard-section footer">
 					<footer class="scorecard-footer">
 						<input type="image" src="http://localhost/demos/HTML_Canvas_Element/Pong/images/button-Erase-All-Games.png" />
-						<input type="image" src="http://localhost/demos/HTML_Canvas_Element/Pong/images/buttons-Close-Form.png" autofocus onclick="test();"/>
+						<input type="image" src="http://localhost/demos/HTML_Canvas_Element/Pong/images/buttons-Close-Form.png" autofocus onclick="hideScoreboard();"/>
 					</footer>
 				</section>
 			</section>
+
 			<!--Canvas tag-->
-			<canvas id="leftScoreCanvas" width="115px" height="79px" style="position: absolute; top: 80px; left: 354px;" ></canvas>
+			<canvas class="" id="leftScoreCanvas" width="115px" height="79px" style="position: absolute; top: 80px; left: 354px;" ></canvas>
 			<canvas id="rightScoreCanvas" width="115px" height="79px" style="position:absolute; top:80px; left:961px;"></canvas>
 			<canvas id="gameBoardCanvas" width="1500%" height="675%" style="background-color: #000;" ></canvas>
 
-
-				<!--This section plays the MorseCode audio file-->
+			<!--This section plays the MorseCode audio file-->
 			<audio class="hit">
 				<source src="18790.wav">
 				<p>Your browser does not support the audio element.</p>
-			</audio> 
+			</audio>
+			<audio class="edge">
+				<source src="edge.mp3">
+				<p>Your browser does not support the audio element.</p>
+			</audio>  
 			<audio class="score">
 				<source src="score.mp3">
 				<p>Your browser does not support the audio element.</p>
 			</audio>
 		</section>
 		<script>
-		function test() {
-		// alert('here'); 
-		document.getElementById("test").style.display = 'none';
-		// document.getElementById("servebutton").removeAttribute("disabled");
-	}
+		function hideScoreboard() {
+			document.getElementById("scorecard-div").style.display = 'none';
+		}
 		function displayScoreboard() {
-			document.getElementById("test").style.display = 'block';
+			document.getElementById("scorecard-div").style.display = 'block';
 			document.getElementById("scorebutton").setAttribute("disabled");
 		}
+		function displayGameOver() {
+			document.getElementById("gameover-section").style.display = 'block';
+		}
+
 		</script>
 		<script>
 			function checkCookie(){
@@ -231,6 +268,7 @@
 			var rightscorecanvas = document.getElementById('rightScoreCanvas');
 
 			var v = document.getElementsByClassName("hit")[0];
+			var edgeeffect = document.getElementsByClassName("edge")[0];
 			var z = document.getElementsByClassName("score")[0];
 
 			var xCoordsBall = canvas.width/2;
@@ -262,25 +300,26 @@
 			leftScore.updateScore();
 			rightScore.updateScore();
 
-			var map = {38: false, 81: false, 40: false, 90: false, 83: false};
+			// 221 = "]"; 81 = "q"; 191="/"; 90="z"; 83="s"
+			var map = {221: false, 81: false, 191: false, 90: false, 83: false};
 
 			//This block handles each raquets controls
 		          document.addEventListener('keydown', function(event) {
 	        			 if (event.keyCode in map) {
         			      	map[event.keyCode] = true;
-        			      		//up arrow keydown
+        			      		// "s" keydown
 	        			      	if (map[83]) {
 						serveBall();
 				      	}
-				      	if (map[38]) {
+				      	if (map[221]) {
 						rightRaquet.moveRaquet('up');
 				      	}
-				      	//letter q keydown
+				      	//letter "q" keydown
 	        			      	if (map[81] && yCoordsRaquetLeft >= -1) {
 	        			      		leftRaquet.moveRaquet('up');
 					}
-					//up arrow && letter q keydown
-					if (map[38] && map[81]) {
+					// "]" && letter "q" keydown
+					if (map[221] && map[81]) {
 	        			      		if (yCoordsRaquetRight >= -1) {
 							clearRaquet(context, xCoordsRaquetRight, yCoordsRaquetRight);
 							context.setTransform(1,0,0,1,0,0);
@@ -294,16 +333,16 @@
 						          drawRaquet(context, xCoordsRaquetLeft, yCoordsRaquetLeft);
 						}
 				      	}
-				      	//down arrow keydown
-		      		        	if (map[40]) {
+				      	// "/" keydown
+		      		        	if (map[191]) {
 	        			      		rightRaquet.moveRaquet('down');
 				      	}
-				      	//letter z keydown
+				      	// "z" keydown
 	        			      	if (map[90] &&  ((yCoordsRaquetLeft+60) <= canvas.height)) {
 						leftRaquet.moveRaquet('down');
 					}
-					//down arrow && letter z keydown
-					if (map[40] && map[90]) {
+					// "/" && "z" keydown
+					if (map[191] && map[90]) {
 	        			      		if ((yCoordsRaquetRight+60) <= canvas.height) {
 							clearRaquet(context, xCoordsRaquetRight, yCoordsRaquetRight);
 							context.setTransform(1,0,0,1,0,0);
@@ -338,7 +377,7 @@
 			gameBall.drawInitialBall(context, canvas, canvas.width/2, canvas.height/2);
 			gameBall.moveBall(2, Math.random(), leftRaquet, rightRaquet);
 
-			document.getElementById("test").style.display = 'none';
+			document.getElementById("scorecard-div").style.display = 'none';
 			}
 			//End servBall
 			function Score(context, player) {
@@ -557,17 +596,21 @@
 					          //Bounce ball off top of Canvas by making angle of Y axis positive
 						if (_yCoordsBall < 0 && direction == 'right') { 
 							angleY = Math.abs(angleY);
+							edgeeffect.play();
 						}
 						//Bounce ball off bottom of Canvas by making angle of Y axis negative
 						if (_yCoordsBall > _canvas.height && direction == 'right') { 
 							angleY = -Math.abs(angleY);
+							edgeeffect.play();
 						}
 						if (_yCoordsBall < 0 && direction == 'left') { 
 							angleY = -Math.abs(angleY);
+							edgeeffect.play();
 						}
 						//Bounce ball off bottom of Canvas by making angle of Y axis negative
 						if (_yCoordsBall > _canvas.height && direction == 'left') { 
 							angleY = Math.abs(angleY);
+							edgeeffect.play();
 						}
 
 					          if(direction == 'left') {
@@ -626,13 +669,14 @@
 						           else {
 						           	self.clearBall();
 						           	z.play();
-						           	if(rightScore.getScore() < 25) {
+						           	if(rightScore.getScore() < 24) {
 						           		rightScore.updateScore(1);
 					           		} 
 						           	else {
 						           		rightScore.updateScore(1);
+						           		displayGameOver();
 						           		alert ('game over: Right Player Wins!!!!!!!');
-								document.getElementById("test").style.display = 'block';
+									document.getElementById("scorecard-div").style.display = 'block';
 					           		} 
 							          clearInterval(endInterval);
 
@@ -698,10 +742,11 @@
 								           	leftScore.updateScore(1);
 						           		} 
 							           	else {
-						           		leftScore.updateScore(2);
-						           		alert ('game over: left Player Wins!!!!!!!');
-								document.getElementById("test").style.display = 'block';
-					           		} 
+							           		leftScore.updateScore(2);
+							           		displayGameOver();
+							           		// alert ('game over: left Player Wins!!!!!!!');
+										document.getElementById("scorecard-div").style.display = 'block';
+						           		} 
 							          clearInterval(endInterval);
 						          }
 					      	}
