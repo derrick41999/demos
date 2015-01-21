@@ -31,7 +31,11 @@
 				font-family: georgia, serif;
 				font: georgia, serif;
 			}
-			.scorecard-div  {
+			.scorecard-div {
+				display: none;
+			}
+			.scorecard-div,
+			.newgame-div  {
 				color: white;
 			}
 			.scorecard-div .scorecard-section .scorecard-header .gameinfo-h2,
@@ -39,17 +43,21 @@
 				width: 4.5em;
 				display: inline-block;
 			}
-			.scorecard-div .header  {
+			.scorecard-div .header,
+			.newgame-div .header  {
 				height: 4em;
 				max-width: 100%;
 				border-radius: .1em .1em 0 0;
 				background-color: black;
 			}
-			.scorecard-div .body .scorecolumn  {
+			.scorecard-div .body .scorecolumn,
+			.newgame-div .newgame-section .newgamecolumn  {
 				background-color: black;
 				float: left; 
 				width: 20%;
 			}
+			.newgame-div .newgame-section .newgamecolumn {
+				width: 45%;
 			.scorecard-div .gameover-section {
 				/*display: none;*/
 			}
@@ -71,7 +79,7 @@
 			}
 			 .button { 
 			 	background-image: url (/images/button-Erase-All-Games.png) no-repeat;
-			  }
+			 }
 /*			.centered  {
   				left: 46%;
 			}*/
@@ -88,13 +96,38 @@
 		<section class="container centered" >
 			<!-- Game Buttons -->
 			<form class="functionbuttonbar">
-				<input id="servebutton" type="button" value="Serve Ball" onclick="serveBall();" autofocus/>
-				<input id="newgamebutton" type="button" value="New Game" onclick="" />
+				<input id="servebutton" type="button" value="Serve Ball" onclick="serveBall();" autofocus />
+				<input id="newgamebutton" type="button" value="New Game" onclick="displayNewGame();" />
 				<input id="endgamebutton" type="button" value="End Game" onclick="" />
 				<input id="resumegamebutton" type="button" value="Resume Game" onclick="" />
 				<input id="scorebutton" type="button" value="Display Scoreboard" onclick="displayScoreboard();" />
 			</form>
 			<br />
+			<section class="newgame-div centered" id="newgame-div" style="">
+				<section class="newgame-section header" >
+					<header>
+						<h1 class="newgame-h1 centered" style="top:0; color:white;">NEW GAME</h1>
+					</header>
+				</section>
+				<section class="newgame-section body" >
+					<section class="newgamecolumn" style="margin-right: 20px;">
+						<label id="leftplayerlabel" for="leftplayerinput" style="margin-bottom: 20px; display:inline-block;">Left Player Name</label>
+						<br />
+						<input type="text" id="leftplayerinput" style="background-color:black; color: white;"></input>
+					</section>
+					<section class="newgamecolumn">
+						<label id="rightplayerlabel" for="rightplayerinput" style="margin-bottom: 20px; display:inline-block;">Right Player Name</label>
+						<br />
+						<input type="text" id="rightplayerinput"></input>
+					</section>
+				</section>
+				<section class="newgame-section footer"  style="padding-top:20px;display: inline-block">
+					<footer class="newgame-footer">
+						<input type="image" src="images/button-Start-New-Game.png" />
+						<input type="image" src="images/button-Cancel-New-Game.png" autofocus onclick="hideNewGame();"/>
+					</footer>
+				</section>
+			</section>
 			<!-- Game Board -->
 			<section class="scorecard-div centered" id="scorecard-div">
 				<section class="scorecard-section header" >
@@ -165,6 +198,22 @@
 			</audio>
 		</section>
 		<script>
+		function hideNewGame() {
+			document.getElementById("newgame-div").style.display = 'inline-block';
+			document.getElementById("newgamebutton").style.display = 'inline-block';
+			document.getElementById("servebutton").style.display = 'inline-block';
+			document.getElementById("endgamebutton").style.display = 'inline-block';
+			document.getElementById("resumegamebutton").style.display = 'inline-block';
+			document.getElementById("scorebutton").style.display = 'inline-block';
+		}
+		function displayNewGame() {
+			document.getElementById("newgame-div").style.display = 'inline-block';
+			document.getElementById("newgamebutton").style.display = 'none';
+			document.getElementById("servebutton").style.display = 'none';
+			document.getElementById("endgamebutton").style.display = 'none';
+			document.getElementById("resumegamebutton").style.display = 'none';
+			document.getElementById("scorebutton").style.display = 'none';
+		}
 		function hideScoreboard() {
 			document.getElementById("scorecard-div").style.display = 'none';
 		}
