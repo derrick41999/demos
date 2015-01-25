@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"border-righ",
+				"border-right-color"
+			],
+			[
 				"in",
 				"index"
 			],
@@ -164,19 +168,19 @@
 	"buffers":
 	[
 		{
-			"file": "/C/xampp/htdocs/Web Tools/Javascript/getBrowserName",
+			"file": "/C/xampp/htdocs/demos/landingPage/index.html",
 			"settings":
 			{
-				"buffer_size": 576,
-				"line_ending": "Windows"
+				"buffer_size": 4650,
+				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "pong.html",
+			"file": "/C/xampp/htdocs/demos/landingPage/css/stylesheet.scss",
 			"settings":
 			{
-				"buffer_size": 27661,
-				"line_ending": "Windows"
+				"buffer_size": 200,
+				"line_ending": "Unix"
 			}
 		}
 	],
@@ -220,16 +224,23 @@
 	},
 	"file_history":
 	[
-		"/C/xampp/htdocs/demos/HTML_Canvas_Element/Pong/delete.html",
+		"/C/xampp/htdocs/demos/landingPage/index.html",
+		"/C/xampp/htdocs/demos/HTML_Canvas_Element/Pong/pong.html",
+		"/C/xampp/htdocs/demos/landingPage/css/bootstrap.css",
+		"/C/xampp/htdocs/Bootstrap Framework/Examples/TB-Buttons/buttons.html",
 		"/C/xampp/htdocs/demos/HTML_Canvas_Element/Pong/css/stylesheet.css",
 		"/C/xampp/htdocs/demos/HTML_Canvas_Element/Pong/css/stylesheet.scss",
-		"/C/xampp/htdocs/demos/HTML_Canvas_Element/Pong/pong.html",
+		"/C/xampp/htdocs/demos/HTML_Canvas_Element/Pong/delete1.html",
+		"/C/xampp/htdocs/demos/HTML_Canvas_Element/Pong/delete",
+		"/C/xampp/htdocs/demos/HTML_Canvas_Element/Pong/delete.html",
+		"/F/view-source derrickdouglassdesigns.com pong pong.html",
+		"/C/ProgramData/Microsoft/Windows/Start Menu/Programs/PuTTY/PuTTY Manual.lnk",
+		"/C/xampp/htdocs/Web Tools/Javascript/getBrowserName",
 		"/C/xampp/htdocs/code utility library/Javascript/getBrowserName",
 		"/C/Users/Derrick/Desktop/Raphaël · Australia.html",
 		"/C/xampp/htdocs/tuskegee/blog.php",
 		"/C/xampp/htdocs/tuskegee/blog.html",
 		"/C/Users/Derrick/Desktop/delete.html",
-		"/C/xampp/htdocs/demos/HTML_Canvas_Element/Pong/delete1.html",
 		"/C/xampp/htdocs/tuskegee/index.php",
 		"/C/xampp/htdocs/tuskegee/redtailmontgomery.html",
 		"/C/Users/Derrick/Desktop/Delete.html",
@@ -345,6 +356,45 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"btn",
+			"scorecard-h1",
+			"position",
+			"gameinfo",
+			"scorecard",
+			"SCORECARD",
+			"scorecard",
+			"testscorecard-div",
+			"test",
+			"alert",
+			"25",
+			"play()",
+			"play",
+			"scoreeffect",
+			"scoreffect",
+			"z.play",
+			"v.play",
+			"z.pla",
+			"z.",
+			"v ",
+			"v",
+			" v ",
+			"hit",
+			"test",
+			"input",
+			"alert",
+			"wins",
+			"win",
+			"score",
+			"left",
+			"clearscore",
+			"clearscoe",
+			"drawscore",
+			"rightscore",
+			"canvas",
+			"context",
+			"test",
+			"position",
+			"myCanvas",
 			"serveBall",
 			"serveBall()",
 			"serveball",
@@ -433,46 +483,7 @@
 			"_yCoordsRaquet",
 			"xCoordsRaquet",
 			"yCoordsRaquetLeft",
-			"yCoordsRaquetRight",
-			"yCoordsRaquetLeft",
-			"alert",
-			"test",
-			"console.log",
-			"sendBallRight",
-			"yCoordsRaquetLeft",
-			"console",
-			"sendBallRight",
-			"yCoordsRaquetLeft",
-			"alert",
-			"sendBallRight",
-			"path",
-			"save",
-			"clearRaquet",
-			"yCoordsRaquet",
-			"15",
-			"setTransform",
-			"yCoordsRaquetRight",
-			"console.log",
-			"xCoordsRaquetRight",
-			"\n				          	",
-			"console",
-			"canvas.height",
-			"experiment",
-			"with",
-			"Experiment",
-			"experiment",
-			"h1",
-			"xCoordsRaquetRight",
-			"yCoordsRaquetRight",
-			"xCoordsRaquet",
-			"yCoords",
-			"xCoords",
-			"1",
-			"rect",
-			"e.",
-			"e",
-			"x",
-			"y"
+			"yCoordsRaquetRight"
 		],
 		"highlight": false,
 		"in_selection": false,
@@ -480,6 +491,9 @@
 		"regex": true,
 		"replace_history":
 		[
+			"gameboardCanvas",
+			"gameboardcanvas",
+			"gameBoardCanvas",
 			",",
 			"",
 			"width"
@@ -498,10 +512,10 @@
 			[
 				{
 					"buffer": 0,
-					"file": "/C/xampp/htdocs/Web Tools/Javascript/getBrowserName",
+					"file": "/C/xampp/htdocs/demos/landingPage/index.html",
 					"settings":
 					{
-						"buffer_size": 576,
+						"buffer_size": 4650,
 						"regions":
 						{
 						},
@@ -514,43 +528,47 @@
 						],
 						"settings":
 						{
-							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"syntax": "Packages/HTML/HTML.tmLanguage",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1566.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "pong.html",
+					"file": "/C/xampp/htdocs/demos/landingPage/css/stylesheet.scss",
 					"settings":
 					{
-						"buffer_size": 27661,
+						"buffer_size": 200,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								10367,
-								10367
+								0,
+								0
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 4514.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				}
+			]
+		},
+		{
+			"sheets":
+			[
 			]
 		}
 	],
@@ -571,11 +589,18 @@
 				0,
 				1,
 				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
 			]
 		],
 		"cols":
 		[
 			0.0,
+			0.5,
 			1.0
 		],
 		"rows":

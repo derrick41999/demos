@@ -4,8 +4,17 @@
 		<link rel="styesheet" type="text/css" href="css/html5cssreset.css" />
 		<style>
 			body {
+				font-size: 1.2em;
 				margin: 0px;
 				padding: 0px;
+			}
+			h1 {
+				font-size: 1.5em;
+				padding-bottom: 1em;
+			}
+			label {
+				margin-bottom: 1em; 
+				display:inline-block;"
 			}
 			.container .functionbuttonbar {
 				margin-top:2em;
@@ -15,6 +24,9 @@
   				top: 50%;
   				left: 50%;
   				transform: translate(-50%, -50%);
+			}
+			.deletebutton {			
+				margin-bottom: .6em;
 			}
 			#gameBoardCanvas {
 				border: 3;
@@ -30,6 +42,10 @@
 				margin-bottom:4em;
 				font-family: georgia, serif;
 				font: georgia, serif;
+			}
+			.playerinput {
+				color: white;
+				background-color:black; "
 			}
 			.scorecard-div {
 				display: none;
@@ -50,18 +66,28 @@
 				border-radius: .1em .1em 0 0;
 				background-color: black;
 			}
-			.scorecard-div .body .scorecolumn,
-			.newgame-div .newgame-section .newgamecolumn  {
+			.scorecolumn,
+			.newgamecolumn  {
 				background-color: black;
 				float: left; 
-				width: 20%;
+				width: 16.6%;
 			}
-			.newgame-div .newgame-section .newgamecolumn {
+			.newgamecolumn {
 				width: 45%;
-			.scorecard-div .gameover-section {
-				/*display: none;*/
 			}
-			.scorecard-div .gameover-section .gameover {
+			.gamefields {
+				margin-bottom: .7em;
+				display: inline-block;
+			}
+			.gameover-section {
+				z-index: 999;
+			}
+			.gameover-section p {
+				font-family: sans-serif;	
+				text-align: center;
+				text-decoration: blink;
+			}
+			.gameover {
 			          color: white;
 			          font-size: 4em;
 			          position: absolute; 
@@ -80,11 +106,22 @@
 			 .button { 
 			 	background-image: url (/images/button-Erase-All-Games.png) no-repeat;
 			 }
-/*			.centered  {
-  				left: 46%;
-			}*/
+			@keyframes blink {  
+			  0% { opacity: 1.0; }
+			  50% { opacity: 0.0; }
+			  100% { opacity: 1.0; }
+			}
+			@-webkit-keyframes blink {
+			  0% { opacity: 1.0; }
+			  50% { opacity: 0.0; }
+			  100% { opacity: 1.0; }
+			}
+			.blink {
+			  animation: blink 3s step-start 0s infinite;
+			  -webkit-animation: blink 3s step-start 0s infinite;
+			} 
 		</style>
-		<noscript style="font-size:75px;">Sorry, your browser does not support JavaScript!</noscript>
+		<noscript style="font-size:2em;">Sorry, your browser does not support JavaScript!</noscript>
 	</header>
 	<body onLoad="checkCookie()">
 		<section class="header-div">
@@ -110,25 +147,25 @@
 					</header>
 				</section>
 				<section class="newgame-section body" >
-					<section class="newgamecolumn" style="margin-right: 20px;">
-						<label id="leftplayerlabel" for="leftplayerinput" style="margin-bottom: 20px; display:inline-block;">Left Player Name</label>
+					<section class="newgamecolumn" style="margin-right: 1em;">
+						<label id="leftplayerlabel" for="leftplayerinput">Left Player Name</label>
 						<br />
-						<input type="text" id="leftplayerinput" style="background-color:black; color: white;"></input>
+						<input type="text" class="playerinput" id="leftplayerinput"></input>
 					</section>
 					<section class="newgamecolumn">
-						<label id="rightplayerlabel" for="rightplayerinput" style="margin-bottom: 20px; display:inline-block;">Right Player Name</label>
+						<label id="rightplayerlabel" for="rightplayerinput" >Right Player Name</label>
 						<br />
-						<input type="text" id="rightplayerinput"></input>
+						<input type="text" class="playerinput" id="rightplayerinput"></input>
 					</section>
 				</section>
-				<section class="newgame-section footer"  style="padding-top:20px;display: inline-block">
+				<section class="newgame-section footer"  style="padding-top:1em;display: inline-block">
 					<footer class="newgame-footer">
 						<input type="image" src="images/button-Start-New-Game.png" />
 						<input type="image" src="images/button-Cancel-New-Game.png" autofocus onclick="hideNewGame();"/>
 					</footer>
 				</section>
 			</section>
-			<!-- Game Board -->
+			<!-- SCORECARD WINDOW -->
 			<section class="scorecard-div centered" id="scorecard-div">
 				<section class="scorecard-section header" >
 					<header>
@@ -166,21 +203,28 @@
 							<br/>
 						</header>
 					</section>
+					<section class="scorecolumn">
+						<header class="scorecard-header" id="delete">
+							<h2 class="gameinfo-h2">&nbsp;</h2>
+							<br/>
+						</header>
+					</section>
 				</section>
-				<section class="centered gameover-section"  id="gameover-section">
-					<p class="gameover" id="gameover">GAME OVER</p>
-				</section>
-				<section class="scorecard-section footer">
+				<section class="scorecard-section footer" style="clear:both;">
 					<footer class="scorecard-footer">
-						<input type="image" src="http://localhost/demos/HTML_Canvas_Element/Pong/images/button-Erase-All-Games.png" />
-						<input type="image" src="http://localhost/demos/HTML_Canvas_Element/Pong/images/buttons-Close-Form.png" autofocus onclick="hideScoreboard();"/>
+						<input type="image" src="images/button-Erase-All-Games.png" />
+						<input type="image" src="images/buttons-Close-Form.png" autofocus onclick="hideScoreboard();"/>
 					</footer>
 				</section>
 			</section>
+			<!-- GAMEOVER MESSAGE -->
+			<section class="gameover-section centered blink"  id="gameover-section">
+				<p class="gameover" id="gameover">GAME OVER</p>
+			</section>
 
 			<!--Canvas tag-->
-			<canvas class="" id="leftScoreCanvas" width="115px" height="79px" style="position: absolute; top: 80px; left: 354px;" ></canvas>
-			<canvas id="rightScoreCanvas" width="115px" height="79px" style="position:absolute; top:80px; left:961px;"></canvas>
+			<canvas class="" id="leftScoreCanvas" width="115px" height="79px" style="position: absolute; top: 100px; left: 354px;" ></canvas>
+			<canvas id="rightScoreCanvas" width="115px" height="79px" style="position:absolute; top:100px; left:961px;"></canvas>
 			<canvas id="gameBoardCanvas" width="1500%" height="675%" style="background-color: #000;" ></canvas>
 
 			<!--This section plays the MorseCode audio file-->
@@ -294,19 +338,35 @@
 			}
 		</script>
 		<script>
-			var gamefields = ["gamedate", "leftplayer","leftscore","rightplayer","rightscore"];
+			var gamefields = ["gamedate", "leftplayer","leftscore","rightplayer","rightscore","delete"];
 
 			for (var outerindex = 1; outerindex<=10; outerindex++) { 
-				for (var innerindex = 0; innerindex<=4; innerindex++) { 
-				var para = document.createElement("span");
-				para.setAttribute("class", gamefields[innerindex]);
-				var node = document.createTextNode(allgames[outerindex][gamefields[innerindex]]);   //Games is hard coded here.....Change when testing.....
-				para.appendChild(node);
-				var element = document.getElementById(gamefields[innerindex]);
-				element.appendChild(para);
+				for (var innerindex = 0; innerindex<=5; innerindex++) { 
+					if (innerindex != 5) {
+						var para = document.createElement("span");
+						para.setAttribute("class", gamefields[innerindex] + " gamefields");
+						var node = document.createTextNode(allgames[outerindex][gamefields[innerindex]]);   //Games is hard coded here.....Change when testing.....
+						para.appendChild(node);
+						var element = document.getElementById(gamefields[innerindex]);
+						element.appendChild(para);
 
-				var br = document.createElement("br");
-				element.appendChild(br);
+						var br = document.createElement("br");
+						element.appendChild(br);
+					}
+					else { 
+						var para = document.createElement("input");
+						para.setAttribute("type", "image");
+						para.setAttribute("src", "images/button-Delete.png");
+						para.setAttribute("class", "deletebutton");
+						para.setAttribute("data-key",allgames[outerindex][gamefields[0]]);
+
+						var element = document.getElementById("delete");
+						element.appendChild(para);
+
+						var br = document.createElement("br");
+						element.appendChild(br);
+					}
+
 				}
 			}
 		</script>
