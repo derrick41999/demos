@@ -47,19 +47,35 @@
 				color: white;
 				background-color:black; "
 			}
-			.scorecard-div {
+			.scoreboard_savegame-div,
+			.newgame-div {
 				display: none;
 			}
-			.scorecard-div,
+			.scoreboard_savegame-div,
+			.playnewgame-div,
+			.scoreboard-clear-div,
+			.savegame-clear-div,
+			.maxgames-clear-div,
 			.newgame-div  {
 				color: white;
 			}
-			.scorecard-div .scorecard-section .scorecard-header .gameinfo-h2,
-			.scorecard-div .scorecard-section .scorecard-header .game {
+			.playnewgame-div,
+			.scoreboard-clear-div,
+			.savegame-clear-div,
+			.maxgames-clear-div
+			 {
+				padding: 0 1em .5em 1em;
+				background-color: black;
+				border-color: white;
+				border-style: solid;	
+			}
+
+			.scoreboard_savegame-div .scoreboard_savegame-section .scoreboard_savegame-header .gameinfo-h2,
+			.scoreboard_savegame-div .scoreboard_savegame-section .scoreboard_savegame-header .game {
 				width: 4.5em;
 				display: inline-block;
 			}
-			.scorecard-div .header,
+			.scoreboard_savegame-div .header,
 			.newgame-div .header  {
 				height: 4em;
 				max-width: 100%;
@@ -93,14 +109,14 @@
 			          position: absolute; 
 			          top: -375px; 
 			          left: -134px;"
-			}
-			.scorecard-div .footer  {
+			}		
+			.scoreboard_savegame-div .footer {
 				height: 4em;
 				border-radius: 0 0 .1em .1em ;
 				background-color: black;	
 			}
-			.scorecard-div .scorecard-section .scorecard-footer,
-			.scorecard-div .scorecard-section .scorecard-h1 {
+			.scoreboard_savegame-div .scoreboard_savegame-section .scoreboard_savegame-footer,
+			.scoreboard_savegame-div .scoreboard_savegame-section .scoreboard_savegame-h1 {
 				padding-top: 1.1em;
 			}
 			 .button { 
@@ -140,7 +156,7 @@
 				<input id="scorebutton" type="button" value="Display Scoreboard" onclick="displayScoreboard();" />
 			</form>
 			<br />
-			<section class="newgame-div centered" id="newgame-div" style="">
+			<section class="newgame-div centered" id="newgame-div">
 				<section class="newgame-section header" >
 					<header>
 						<h1 class="newgame-h1 centered" style="top:0; color:white;">NEW GAME</h1>
@@ -161,68 +177,107 @@
 				<section class="newgame-section footer"  style="padding-top:1em;display: inline-block">
 					<footer class="newgame-footer">
 						<input type="image" src="images/button-Start-New-Game.png" />
-						<input type="image" src="images/button-Cancel-New-Game.png" autofocus onclick="hideNewGame();"/>
+						<input type="image" src="images/button-Cancel-New-Game.png" autofocus onclick="document.getElementById('newgame-div').style.display = 'none';" />
 					</footer>
 				</section>
 			</section>
-			<!-- SCORECARD WINDOW -->
-			<section class="scorecard-div centered" id="scorecard-div">
-				<section class="scorecard-section header" >
+			<!-- scoreboard_savegame WINDOW -->
+			<section class="scoreboard_savegame-div centered" id="scoreboard_savegame-div">
+				<section class="scoreboard_savegame-section header" >
 					<header>
-						<h1 class="scorecard-h1 centered" style="top:0;">SCORECARD</h1>
+						<h1 class="scoreboard_savegame-h1 centered" style="top:0;">SCOREBOARD</h1>
 					</header>
 				</section>
-				<section class="scorecard-section body">
+				<section class="scoreboard_savegame-section body">
 					<section class="scorecolumn">
-						<header class="scorecard-header" id="gamedate">
+						<header class="scoreboard_savegame-header" id="gamedate">
 							<h2 class="gameinfo-h2" id="game">Game</h2>
 							<br/>
 						</header>
 					</section>
 					<section class="scorecolumn">
-						<header class="scorecard-header"  id="leftplayer">
+						<header class="scoreboard_savegame-header"  id="leftplayer">
 							<h2 class="gameinfo-h2">Player</h2>
 							<br/>
 						</header>
 					</section>
 					<section class="scorecolumn">
-						<header class="scorecard-header"  id="leftscore">
+						<header class="scoreboard_savegame-header"  id="leftscore">
 							<h2 class="gameinfo-h2">Score</h2>
 							<br/>
 						</header>
 					</section>
 					<section class="scorecolumn">
-						<header class="scorecard-header" id="rightplayer">
+						<header class="scoreboard_savegame-header" id="rightplayer">
 							<h2 class="gameinfo-h2">Player</h2>
 							<br/>
 						</header>
 					</section>
 					<section class="scorecolumn">
-						<header class="scorecard-header" id="rightscore">
+						<header class="scoreboard_savegame-header" id="rightscore">
 							<h2 class="gameinfo-h2">Score</h2>
 							<br/>
 						</header>
 					</section>
 					<section class="scorecolumn">
-						<header class="scorecard-header" id="delete">
+						<header class="scoreboard_savegame-header" id="delete">
 							<h2 class="gameinfo-h2">&nbsp;</h2>
 							<br/>
 						</header>
 					</section>
 				</section>
-				<section class="scorecard-section footer" style="clear:both;">
-					<footer class="scorecard-footer">
+				<section class="scoreboard_savegame-section footer" style="clear:both;">
+					<footer class="scoreboard_savegame-footer">
 						<input type="image" src="images/button-Erase-All-Games.png" />
 						<input type="image" src="images/buttons-Close-Form.png" autofocus onclick="hideScoreboard();"/>
 					</footer>
 				</section>
+			</section>
+
+			<!-- ALL GAME MESSAGES --> 
+
+			<!-- PLAY A NEW GAME MESSAGE-->
+			<section class="playnewgame-div centered" id="playnewgame-div">
+				<p>Play a New Game?</p>
+				<footer class="playnewgame-footer">
+					<input type="image" src="images/button-Yes.png" />
+					<input type="image" src="images/button-No.png" autofocus onclick="document.getElementById('playnewgame-div').style.display = 'none';" />
+				</footer>
+			</section>
+			<!-- ERASE SCOREBOARD MESSAGE-->
+			<section class="scoreboard-clear-div centered" id="scoreboard-clear-div">
+				<p>Are you sure you want to erase all scores?</p>
+				<footer class="scoreboard-footer">
+					<input type="image" src="images/button-Yes.png" />
+					<input type="image" src="images/button-No.png" autofocus onclick="document.getElementById('scoreboard-clear-div').style.display = 'none';"/>
+				</footer>
+			</section>
+			<!-- ERASE SAVED GAMES MESSAGE-->
+			<section class="savegame-clear-div centered" id="savegame-clear-div">
+				<p>Are you sure you want to erase all games?</p>
+				<footer class="savegame-footer">
+					<input type="image" src="images/button-Yes.png" />
+					<input type="image" src="images/button-No.png" autofocus onclick="document.getElementById('savegame-clear-div').style.display = 'none';"/>
+				</footer>
+			</section>
+			<!-- MAXIMUM NUMBER OF GAMES REACHED MESSAGE-->
+			<section class="maxgames-clear-div centered" id="maxgames-clear-div">
+				<p>The Maximum (10) Number of saved games<br/>
+					has been reached. <br/><br/>Do you want to delete
+					the oldest saved game?</p>
+				<footer class="maxgames-footer">
+					<input type="image" src="images/button-Yes.png" />
+					<input type="image" src="images/button-No.png" autofocus onclick="document.getElementById('maxgames-clear-div').style.display = 'none';"/>
+				</footer>
 			</section>
 			<!-- GAMEOVER MESSAGE -->
 			<section class="gameover-section centered blink"  id="gameover-section">
 				<p class="gameover" id="gameover">GAME OVER</p>
 			</section>
 
-			<!--Canvas tag-->
+			<!-- \\ ALL GAME MESSAGES --> 
+
+			<!--GAMEBOARD-->
 			<canvas class="" id="leftScoreCanvas" width="115px" height="79px" style="position: absolute; top: 100px; left: 354px;" ></canvas>
 			<canvas id="rightScoreCanvas" width="115px" height="79px" style="position:absolute; top:100px; left:961px;"></canvas>
 			<canvas id="gameBoardCanvas" width="1500%" height="675%" style="background-color: #000;" ></canvas>
@@ -259,10 +314,10 @@
 			document.getElementById("scorebutton").style.display = 'none';
 		}
 		function hideScoreboard() {
-			document.getElementById("scorecard-div").style.display = 'none';
+			document.getElementById("scoreboard_savegame-div").style.display = 'none';
 		}
 		function displayScoreboard() {
-			document.getElementById("scorecard-div").style.display = 'block';
+			document.getElementById("scoreboard_savegame-div").style.display = 'block';
 			document.getElementById("scorebutton").setAttribute("disabled");
 		}
 		function displayGameOver() {
@@ -340,13 +395,13 @@
 		<script>
 			var gamefields = ["gamedate", "leftplayer","leftscore","rightplayer","rightscore","delete"];
 
-			for (var outerindex = 1; outerindex<=10; outerindex++) { 
+			for (var outerindex = 1; outerindex < allgames.length; outerindex++) { 
 				for (var innerindex = 0; innerindex<=5; innerindex++) { 
 					if (innerindex != 5) {
 						var para = document.createElement("span");
 						para.setAttribute("class", gamefields[innerindex] + " gamefields");
 						var node = document.createTextNode(allgames[outerindex][gamefields[innerindex]]);   //Games is hard coded here.....Change when testing.....
-						para.appendChild(node);
+						para.appendChild(node);						
 						var element = document.getElementById(gamefields[innerindex]);
 						element.appendChild(para);
 
@@ -358,7 +413,11 @@
 						para.setAttribute("type", "image");
 						para.setAttribute("src", "images/button-Delete.png");
 						para.setAttribute("class", "deletebutton");
-						para.setAttribute("data-key",allgames[outerindex][gamefields[0]]);
+						para.setAttribute("data-key", allgames[outerindex][gamefields[0]]);
+						// var text1 = "deleteScore('"; var text2 = allgames[outerindex][gamefields[0]];	var text3 = "')";
+						var text1 = "deleteScore.test = function() { return 1}; var a = deleteScore.test(); alert(a);";
+						// text-decorationcat = text1 + text2 + text3;
+						para.setAttribute("onClick", text1);
 
 						var element = document.getElementById("delete");
 						element.appendChild(para);
@@ -366,9 +425,16 @@
 						var br = document.createElement("br");
 						element.appendChild(br);
 					}
-
 				}
 			}
+		</script>
+		<script>
+		function deleteScore() {
+
+			
+
+		}
+
 		</script>
 		<!-- This section is for the canvas tag -->
 		<script>
@@ -486,7 +552,7 @@
 			gameBall.drawInitialBall(context, canvas, canvas.width/2, canvas.height/2);
 			gameBall.moveBall(2, Math.random(), leftRaquet, rightRaquet);
 
-			document.getElementById("scorecard-div").style.display = 'none';
+			document.getElementById("scoreboard_savegame-div").style.display = 'none';
 			}
 			//End servBall
 			function Score(context, player) {
@@ -785,7 +851,7 @@
 						           		rightScore.updateScore(1);
 						           		displayGameOver();
 						           		alert ('game over: Right Player Wins!!!!!!!');
-									document.getElementById("scorecard-div").style.display = 'block';
+									document.getElementById("scoreboard_savegame-div").style.display = 'block';
 					           		} 
 							          clearInterval(endInterval);
 
@@ -854,7 +920,7 @@
 							           		leftScore.updateScore(2);
 							           		displayGameOver();
 							           		// alert ('game over: left Player Wins!!!!!!!');
-										document.getElementById("scorecard-div").style.display = 'block';
+										document.getElementById("scoreboard_savegame-div").style.display = 'block';
 						           		} 
 							          clearInterval(endInterval);
 						          }

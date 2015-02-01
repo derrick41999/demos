@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"get",
+				"getElementById"
+			],
+			[
+				"mar",
+				"margin-bottom"
+			],
+			[
 				"border-righ",
 				"border-right-color"
 			],
@@ -26,10 +34,6 @@
 			[
 				"new",
 				"newGameIndex"
-			],
-			[
-				"get",
-				"getNumofChars"
 			],
 			[
 				"index",
@@ -168,18 +172,13 @@
 	"buffers":
 	[
 		{
-			"file": "/C/xampp/htdocs/demos/landingPage/index.html",
+			"contents": "<!DOCTYPE HTML>\n<html>\n	<header>\n		<link rel=\"styesheet\" type=\"text/css\" href=\"css/html5cssreset.css\" />\n		<style>\n			body {\n				font-size: 1.2em;\n				margin: 0px;\n				padding: 0px;\n			}\n			h1 {\n				font-size: 1.5em;\n				padding-bottom: 1em;\n			}\n			label {\n				margin-bottom: 1em; \n				display:inline-block;\"\n			}\n			.container .functionbuttonbar {\n				margin-top:2em;\n			}\n			.centered {\n  				position: fixed;\n  				top: 50%;\n  				left: 50%;\n  				transform: translate(-50%, -50%);\n			}\n			.deletebutton {			\n				margin-bottom: .6em;\n			}\n			#gameBoardCanvas {\n				border: 3;\n				border-style: solid;\n				border-color: rgb(0,0,0);\n				margin: auto 0;	\n			}\n			.header-div > header > h1 {\n				margin: 0; \n				padding: 0;\n				color: green;\n				margin-left: 4em; \n				margin-bottom:4em;\n				font-family: georgia, serif;\n				font: georgia, serif;\n			}\n			.playerinput {\n				color: white;\n				background-color:black; \"\n			}\n			/*.scorecard-div {\n				display: none;\n			}*/\n			.scorecard-div,\n			.newgame-div  {\n				color: white;\n			}\n			.scorecard-div .scorecard-section .scorecard-header .gameinfo-h2,\n			.scorecard-div .scorecard-section .scorecard-header .game {\n				width: 4.5em;\n				display: inline-block;\n			}\n			.scorecard-div .header,\n			.newgame-div .header  {\n				height: 4em;\n				max-width: 100%;\n				border-radius: .1em .1em 0 0;\n				background-color: black;\n			}\n			.scorecolumn,\n			.newgamecolumn  {\n				background-color: black;\n				float: left; \n				width: 16.6%;\n			}\n			.newgamecolumn {\n				width: 45%;\n			}\n			.gamefields {\n				margin-bottom: .7em;\n				display: inline-block;\n			}\n			.gameover-section {\n				z-index: 999;\n			}\n			.gameover-section p {\n				font-family: sans-serif;	\n				text-align: center;\n				text-decoration: blink;\n			}\n			.gameover {\n			          color: white;\n			          font-size: 4em;\n			          position: absolute; \n			          top: -375px; \n			          left: -134px;\"\n			}\n			.scorecard-div .footer  {\n				height: 4em;\n				border-radius: 0 0 .1em .1em ;\n				background-color: black;	\n			}\n			.scorecard-div .scorecard-section .scorecard-footer,\n			.scorecard-div .scorecard-section .scorecard-h1 {\n				padding-top: 1.1em;\n			}\n			 .button { \n			 	background-image: url (/images/button-Erase-All-Games.png) no-repeat;\n			 }\n			@keyframes blink {  \n			  0% { opacity: 1.0; }\n			  50% { opacity: 0.0; }\n			  100% { opacity: 1.0; }\n			}\n			@-webkit-keyframes blink {\n			  0% { opacity: 1.0; }\n			  50% { opacity: 0.0; }\n			  100% { opacity: 1.0; }\n			}\n			.blink {\n			  animation: blink 3s step-start 0s infinite;\n			  -webkit-animation: blink 3s step-start 0s infinite;\n			} \n		</style>\n		<noscript style=\"font-size:2em;\">Sorry, your browser does not support JavaScript!</noscript>\n	</header>\n	<body onLoad=\"checkCookie()\">\n		<section class=\"header-div\">\n			<header>			\n				<h1 >PONG programmed by Derrick Douglass <a href=\"http:\\\\www.derrickdouglassdesigns.com\">www.derrickdouglassdesigns.com</a>:: BETA VERSION\n				</h1>\n			</header>\n		<section>\n		<section class=\"container centered\" >\n			<!-- Game Buttons -->\n			<form class=\"functionbuttonbar\">\n				<input id=\"servebutton\" type=\"button\" value=\"Serve Ball\" onclick=\"serveBall();\" autofocus />\n				<input id=\"newgamebutton\" type=\"button\" value=\"New Game\" onclick=\"displayNewGame();\" />\n				<input id=\"endgamebutton\" type=\"button\" value=\"End Game\" onclick=\"\" />\n				<input id=\"resumegamebutton\" type=\"button\" value=\"Resume Game\" onclick=\"\" />\n				<input id=\"scorebutton\" type=\"button\" value=\"Display Scoreboard\" onclick=\"displayScoreboard();\" />\n			</form>\n			<br />\n			<section class=\"newgame-div centered\" id=\"newgame-div\" style=\"\">\n				<section class=\"newgame-section header\" >\n					<header>\n						<h1 class=\"newgame-h1 centered\" style=\"top:0; color:white;\">NEW GAME</h1>\n					</header>\n				</section>\n				<section class=\"newgame-section body\" >\n					<section class=\"newgamecolumn\" style=\"margin-right: 1em;\">\n						<label id=\"leftplayerlabel\" for=\"leftplayerinput\">Left Player Name</label>\n						<br />\n						<input type=\"text\" class=\"playerinput\" id=\"leftplayerinput\"></input>\n					</section>\n					<section class=\"newgamecolumn\">\n						<label id=\"rightplayerlabel\" for=\"rightplayerinput\" >Right Player Name</label>\n						<br />\n						<input type=\"text\" class=\"playerinput\" id=\"rightplayerinput\"></input>\n					</section>\n				</section>\n				<section class=\"newgame-section footer\"  style=\"padding-top:1em;display: inline-block\">\n					<footer class=\"newgame-footer\">\n						<input type=\"image\" src=\"images/button-Start-New-Game.png\" />\n						<input type=\"image\" src=\"images/button-Cancel-New-Game.png\" autofocus onclick=\"hideNewGame();\"/>\n					</footer>\n				</section>\n			</section>\n			<!-- SCORECARD WINDOW -->\n			<section class=\"scorecard-div centered\" id=\"scorecard-div\">\n				<section class=\"scorecard-section header\" >\n					<header>\n						<h1 class=\"scorecard-h1 centered\" style=\"top:0;\">SCORECARD</h1>\n					</header>\n				</section>\n				<section class=\"scorecard-section body\">\n					<section class=\"scorecolumn\">\n						<header class=\"scorecard-header\" id=\"gamedate\">\n							<h2 class=\"gameinfo-h2\" id=\"game\">Game</h2>\n							<br/>\n						</header>\n					</section>\n					<section class=\"scorecolumn\">\n						<header class=\"scorecard-header\"  id=\"leftplayer\">\n							<h2 class=\"gameinfo-h2\">Player</h2>\n							<br/>\n						</header>\n					</section>\n					<section class=\"scorecolumn\">\n						<header class=\"scorecard-header\"  id=\"leftscore\">\n							<h2 class=\"gameinfo-h2\">Score</h2>\n							<br/>\n						</header>\n					</section>\n					<section class=\"scorecolumn\">\n						<header class=\"scorecard-header\" id=\"rightplayer\">\n							<h2 class=\"gameinfo-h2\">Player</h2>\n							<br/>\n						</header>\n					</section>\n					<section class=\"scorecolumn\">\n						<header class=\"scorecard-header\" id=\"rightscore\">\n							<h2 class=\"gameinfo-h2\">Score</h2>\n							<br/>\n						</header>\n					</section>\n					<section class=\"scorecolumn\">\n						<header class=\"scorecard-header\" id=\"delete\">\n							<h2 class=\"gameinfo-h2\">&nbsp;</h2>\n							<br/>\n						</header>\n					</section>\n				</section>\n				<section class=\"scorecard-section footer\" style=\"clear:both;\">\n					<footer class=\"scorecard-footer\">\n						<input type=\"image\" src=\"images/button-Erase-All-Games.png\" />\n						<input type=\"image\" src=\"images/buttons-Close-Form.png\" autofocus onclick=\"hideScoreboard();\"/>\n					</footer>\n				</section>\n			</section>\n			<!-- GAMEOVER MESSAGE -->\n			<section class=\"gameover-section centered blink\"  id=\"gameover-section\">\n				<p class=\"gameover\" id=\"gameover\">GAME OVER</p>\n			</section>\n\n			<!--Canvas tag-->\n			<canvas class=\"\" id=\"leftScoreCanvas\" width=\"115px\" height=\"79px\" style=\"position: absolute; top: 100px; left: 354px;\" ></canvas>\n			<canvas id=\"rightScoreCanvas\" width=\"115px\" height=\"79px\" style=\"position:absolute; top:100px; left:961px;\"></canvas>\n			<canvas id=\"gameBoardCanvas\" width=\"1500%\" height=\"675%\" style=\"background-color: #000;\" ></canvas>\n\n			<!--This section plays the MorseCode audio file-->\n			<audio class=\"hit\">\n				<source src=\"18790.wav\">\n				<p>Your browser does not support the audio element.</p>\n			</audio>\n			<audio class=\"edge\">\n				<source src=\"edge.mp3\">\n				<p>Your browser does not support the audio element.</p>\n			</audio>  \n			<audio class=\"score\">\n				<source src=\"score.mp3\">\n				<p>Your browser does not support the audio element.</p>\n			</audio>\n		</section>\n		<script>\n		function hideNewGame() {\n			document.getElementById(\"newgame-div\").style.display = 'inline-block';\n			document.getElementById(\"newgamebutton\").style.display = 'inline-block';\n			document.getElementById(\"servebutton\").style.display = 'inline-block';\n			document.getElementById(\"endgamebutton\").style.display = 'inline-block';\n			document.getElementById(\"resumegamebutton\").style.display = 'inline-block';\n			document.getElementById(\"scorebutton\").style.display = 'inline-block';\n		}\n		function displayNewGame() {\n			document.getElementById(\"newgame-div\").style.display = 'inline-block';\n			document.getElementById(\"newgamebutton\").style.display = 'none';\n			document.getElementById(\"servebutton\").style.display = 'none';\n			document.getElementById(\"endgamebutton\").style.display = 'none';\n			document.getElementById(\"resumegamebutton\").style.display = 'none';\n			document.getElementById(\"scorebutton\").style.display = 'none';\n		}\n		function hideScoreboard() {\n			document.getElementById(\"scorecard-div\").style.display = 'none';\n		}\n		function displayScoreboard() {\n			document.getElementById(\"scorecard-div\").style.display = 'block';\n			document.getElementById(\"scorebutton\").setAttribute(\"disabled\");\n		}\n		function displayGameOver() {\n			document.getElementById(\"gameover-section\").style.display = 'block';\n		}\n\n		</script>\n		<script>\n			function checkCookie(){\n				var cookieEnabled=(navigator.cookieEnabled)? true : false   \n			            if (typeof navigator.cookieEnabled==\"undefined\" && !cookieEnabled){ \n					document.cookie=\"testcookie\";\n					cookieEnabled=(document.cookie.indexOf(\"testcookie\")!=-1)? true : false;\n				}\n			    return (cookieEnabled)?true:showCookieFail();\n			}\n\n			function showCookieFail(){\n				alert('please turn on cookies');\n			}\n		</script>\n		<!-- This section creates the cookie and places the contents into discrete objects -->\n		<script>\n			document.cookie = \"game=,gamedate,12/29/1108:13,leftplayer,rachelreed1,leftscore,01,rightplayer,johnreed1,rightscore,01,endofline,endofline,gamedate,12/29/1209:13,leftplayer,rachelreed2,leftscore,02,rightplayer,johnreed2,rightscore,02,endofline,endofline,gamedate,12/29/1309:13,leftplayer,rachelreed3,leftscore,03,rightplayer,johnreed3,rightscore,03,endofline,endofline,gamedate,12/29/1809:13,leftplayer,rachelreed4,leftscore,04,rightplayer,johnreed4,rightscore,04,endofline,endofline,gamedate,12/29/1409:13,leftplayer,rachelreed5,leftscore,05,rightplayer,johnreed5,rightscore,05,endofline,endofline,gamedate,12/29/1609:13,leftplayer,rachelreed6,leftscore,06,rightplayer,johnreed6,rightscore,06,endofline,endofline,gamedate,12/29/1408:13,leftplayer,rachelreed7,leftscore,07,rightplayer,johnreed7,rightscore,07,endofline,endofline,gamedate,12/29/1407:13,leftplayer,rachelreed8,leftscore,08,rightplayer,johnreed8,rightscore,08,endofline,endofline,gamedate,12/29/1406:13,leftplayer,rachelreed9,leftscore,09,rightplayer,johnreed9,rightscore,09,endofline,endofline,gamedate,12/29/1405:13,leftplayer,rachelreed10,leftscore,10,rightplayer,johnreed10,rightscore,10;max-age=\"+(60*60*24*365);\n\n			// Read the cookie property. This returns all cookies for this document\n			var allcookies = document.cookie;\n			var allgames = [];\n			var str = \"\";\n			var value = \"\";\n			var endofline = \"endofline\";\n			var x = \"\";\n\n			var gameNum = 1; // This variable assigns a unique integer for each game played\n\n			var game1 = new Object(); var game2 = new Object(); var game3 = new Object(); var game4 = new Object(); var game5 = new Object();\n			var game6 = new Object(); var game7 = new Object(); var game8 = new Object(); var game9 = new Object();  var game10 = new Object();\n\n			str = allcookies.split(\",\"); //split allcookies string value in name/value pairs using the comma \",\" as the delimeter\n			// alert(endofline);\n			if (str.indexOf(endofline) == -1) throw new Error(\"You must have two endofline delimeters for each game played\");  //Exception handling\n\n			for (var i = 1; i < str.length; i+=2) {\n\n				//The 'endofline' value is the last name/value pair for each game. \n				//Note: because of the for/loop, you must have two 'endofline' values for each game or this process will fail\n				\n				 if (str[i] != endofline) { \n\n				var tempIndex = i + 1;\n\n				name = str[i];\n				value = str[tempIndex];\n\n					switch (gameNum) {\n					case(1): game1[name] = value; allgames[1] = game1; break;	\n					case(2): game2[name] = value; allgames[2] = game2; break;\n					case(3): game3[name] = value; allgames[3] = game3; break;	\n					case(4): game4[name] = value; allgames[4] = game4; break;	\n					case(5): game5[name] = value; allgames[5] = game5; break;	\n					case(6): game6[name] = value; allgames[6] = game6; break;	\n					case(7): game7[name] = value; allgames[7] = game7; break;	\n					case(8): game8[name] = value; allgames[8] = game8; break;	\n					case(9): game9[name] = value; allgames[9] = game9; break;	\n			                        case(10): game10[name] = value; allgames[10] = game10; break;\n				}\n			}\n				else {\n					var tempIndex = i + 1;\n					if (str[tempIndex] !=  endofline) throw new Error(\"You must have two endofline delimeters for each game played\");  //Exception handling\n					gameNum++;\n				}\n			}\n		</script>\n		<script>\n			var gamefields = [\"gamedate\", \"leftplayer\",\"leftscore\",\"rightplayer\",\"rightscore\",\"delete\"];\n\n			for (var outerindex = 1; outerindex < allgames.length; outerindex++) { \n				for (var innerindex = 0; innerindex<=5; innerindex++) { \n					if (innerindex != 5) {\n						var para = document.createElement(\"span\");\n						para.setAttribute(\"class\", gamefields[innerindex] + \" gamefields\");\n						var node = document.createTextNode(allgames[outerindex][gamefields[innerindex]]);   //Games is hard coded here.....Change when testing.....\n						para.appendChild(node);\n						var element = document.getElementById(gamefields[innerindex]);\n						element.appendChild(para);\n\n						var br = document.createElement(\"br\");\n						element.appendChild(br);\n					}\n					else { \n						var para = document.createElement(\"input\");\n						para.setAttribute(\"type\", \"image\");\n						para.setAttribute(\"src\", \"images/button-Delete.png\");\n						para.setAttribute(\"class\", \"deletebutton\");\n						para.setAttribute(\"data-key\", allgames[outerindex][gamefields[0]]);\n						// var text1 = \"deleteScore('\"; var text2 = allgames[outerindex][gamefields[0]];	var text3 = \"')\";\n						var text1 = \"deleteScore.test = function() { return 1}; var a = deleteScore.test(); alert(a);\";\n						// text-decorationcat = text1 + text2 + text3;\n						para.setAttribute(\"onClick\", text1);\n\n						var element = document.getElementById(\"delete\");\n						element.appendChild(para);\n\n						var br = document.createElement(\"br\");\n						element.appendChild(br);\n					}\n				}\n			}\n		</script>\n		<script>\n		function deleteScore() {\n\n			\n\n		}\n\n		</script>\n		<!-- This section is for the canvas tag -->\n		<script>\n			var canvas = document.getElementById('gameBoardCanvas');\n			var leftscorecanvas = document.getElementById('leftScoreCanvas');\n			var rightscorecanvas = document.getElementById('rightScoreCanvas');\n\n			var v = document.getElementsByClassName(\"hit\")[0];\n			var edgeeffect = document.getElementsByClassName(\"edge\")[0];\n			var z = document.getElementsByClassName(\"score\")[0];\n\n			var xCoordsBall = canvas.width/2;\n			var yCoordsBall = canvas.height/2;\n\n			var xCoordsRaquetLeft = canvas.width/14;\n			var yCoordsRaquetLeft = canvas.height/2 - 90;\n\n			var xCoordsRaquetRight = canvas.width/1.1;\n			var yCoordsRaquetRight = canvas.height/2  - 30;\n\n			var radius = 6;\n\n			var context = canvas.getContext('2d');\n			var leftscorecontext = leftscorecanvas.getContext('2d');\n			var rightscorecontext = rightscorecanvas.getContext('2d');\n\n			var leftScore = new Score(leftscorecontext, 1);\n			var rightScore = new Score(rightscorecontext, 2); \n\n			var leftRaquet = new Raquet(context, canvas);\n			var rightRaquet = new Raquet(context, canvas); \n						\n			var gameBall = new Ball(context, canvas, leftScore);\n\n			rightRaquet.drawInitialRaquet(context, canvas, canvas.width/1.1, canvas.height/2  - 30, 'right');\n			leftRaquet.drawInitialRaquet(context, canvas, canvas.width/14, canvas.height/2 - 90, 'left');\n\n			leftScore.updateScore();\n			rightScore.updateScore();\n\n			// 221 = \"]\"; 81 = \"q\"; 191=\"/\"; 90=\"z\"; 83=\"s\"\n			var map = {221: false, 81: false, 191: false, 90: false, 83: false};\n\n			//This block handles each raquets controls\n		          document.addEventListener('keydown', function(event) {\n	        			 if (event.keyCode in map) {\n        			      	map[event.keyCode] = true;\n        			      		// \"s\" keydown\n	        			      	if (map[83]) {\n						serveBall();\n				      	}\n				      	if (map[221]) {\n						rightRaquet.moveRaquet('up');\n				      	}\n				      	//letter \"q\" keydown\n	        			      	if (map[81] && yCoordsRaquetLeft >= -1) {\n	        			      		leftRaquet.moveRaquet('up');\n					}\n					// \"]\" && letter \"q\" keydown\n					if (map[221] && map[81]) {\n	        			      		if (yCoordsRaquetRight >= -1) {\n							clearRaquet(context, xCoordsRaquetRight, yCoordsRaquetRight);\n							context.setTransform(1,0,0,1,0,0);\n							yCoordsRaquetRight = yCoordsRaquetRight - 10;\n						          drawRaquet(context, xCoordsRaquetRight, yCoordsRaquetRight);\n					      	}\n					          if (yCoordsRaquetLeft >= -1 ) {\n							clearRaquet(context, xCoordsRaquetLeft, yCoordsRaquetLeft);\n							context.setTransform(1,0,0,1,0,0);\n							yCoordsRaquetLeft = yCoordsRaquetLeft - 10;\n						          drawRaquet(context, xCoordsRaquetLeft, yCoordsRaquetLeft);\n						}\n				      	}\n				      	// \"/\" keydown\n		      		        	if (map[191]) {\n	        			      		rightRaquet.moveRaquet('down');\n				      	}\n				      	// \"z\" keydown\n	        			      	if (map[90] &&  ((yCoordsRaquetLeft+60) <= canvas.height)) {\n						leftRaquet.moveRaquet('down');\n					}\n					// \"/\" && \"z\" keydown\n					if (map[191] && map[90]) {\n	        			      		if ((yCoordsRaquetRight+60) <= canvas.height) {\n							clearRaquet(context, xCoordsRaquetRight, yCoordsRaquetRight);\n							context.setTransform(1,0,0,1,0,0);\n							yCoordsRaquetRight = yCoordsRaquetRight + 10;\n						          drawRaquet(context, xCoordsRaquetRight, yCoordsRaquetRight);\n					      	}\n					          if ((yCoordsRaquetLeft+60) <= canvas.height) {\n							clearRaquet(context, xCoordsRaquetLeft, yCoordsRaquetLeft);\n							context.setTransform(1,0,0,1,0,0);\n							yCoordsRaquetLeft = yCoordsRaquetLeft + 10;\n						          drawRaquet(context, xCoordsRaquetLeft, yCoordsRaquetLeft);\n						}\n				      	}\n	      			}\n			}, false);\n			document.addEventListener('keyup', function(event) {\n				if (event.keyCode in map) {\n				        map[event.keyCode] = false;\n				    }\n				}, false);\n\n			function serveBall(){	\n			leftScore.drawScore(context);\n			leftRaquet.clearRaquet();\n\n			rightScore.drawScore(rightscorecontext);\n			rightRaquet.clearRaquet();\n\n			leftRaquet.drawInitialRaquet(context, canvas, canvas.width/14, canvas.height/2 - 90);\n			rightRaquet.drawInitialRaquet(context, canvas, canvas.width/1.1, canvas.height/2  - 30);\n\n			gameBall.drawInitialBall(context, canvas, canvas.width/2, canvas.height/2);\n			gameBall.moveBall(2, Math.random(), leftRaquet, rightRaquet);\n\n			document.getElementById(\"scorecard-div\").style.display = 'none';\n			}\n			//End servBall\n			function Score(context, player) {\n\n				var self = this;\n				var _context = context;\n				var tempArray = [];\n				var _currentScore = 0;\n				var _player = player;\n				var left;\n				var right;\n\n				var Top = [1,0,12,10,36,10,48,0,1,0];\n				var TopRight = [49,0,49,32,43,38,38,33,38,10];\n				var BottomRight = [49,45,49,76,38,66,38,44,43,39];\n				var Middle = [42,38,37,43,12,43,7,38,12,33,37,33];\n				var Bottom = [37,66,48,77,1,77,12,66];\n				var BottomLeft = [6,39,11,44,11,76,1,75,1,43];\n				var TopLeft = [1,1,11,11,11,11,11,33,6,38,1,33];\n\n				// var Top = [351,50,362,60,386,60,398,50,351,50];\n				// var TopRight = [399,50,399,82,393,88,388,83,388,60];\n				// var BottomRight = [399,95,399,126,388,116,388,94,393,89];\n				// var Middle = [392,88,387,93,362,93,357,88,362,83,387,83];\n				// var Bottom = [387,116,398,127,351,127,362,116];\n				// var BottomLeft = [356,89,361,94,361,116,351,125,351,93];\n				// var TopLeft = [351,51,361,61,361,61,361,83,356,88,351,83];\n\n				// var Top = [416,50,427,60,451,60,463,50,416,50];\n				// var TopRight = [464,50,464,82,458,88,453,83,453,60];\n				// var BottomRight = [464,95,464,126,453,116,453,94,458,89];\n				// var Middle = [457,88,452,93,427,93,422,88,427,83,452,83];\n				// var Bottom = [452,116,463,127,416,127,427,116];\n				// var BottomLeft = [421,89,426,94,426,116,416,125,416,93];\n				// var TopLeft = [416,51,426,61,426,61,426,83,421,88,416,83];\n\n				this.getScore = function() {\n\n					return _currentScore;\n					return;\n\n				}\n\n				this.incrementScore = function() {\n\n					_currentScore++;\n					return;\n				}\n\n				this.updateScore = function() {\n\n					if (_player == '1') {\n						left = 0;\n						right = 65;\n					}\n					else {\n						left = 0;\n						right = 65;	\n					}\n					if(_currentScore <= 9) {\n						self.clearScore();\n						scoreCoordArray = [Top, TopRight, BottomRight,  Bottom, BottomLeft, TopLeft];\n						self.drawScore(left);\n					}\n					else if(_currentScore <= 19) {\n						self.clearScore();\n						scoreCoordArray = [TopRight, BottomRight];\n						self.drawScore(left);\n					}\n					else if (_currentScore <= 25) {\n						self.clearScore();\n						scoreCoordArray = [Top, TopRight, Middle, BottomLeft, Bottom];\n						self.drawScore(left);\n					}\n\n					switch (_currentScore) {\n						case 0:\n						case 10:\n						case 20:\n							scoreCoordArray = [Top, TopRight, BottomRight,  Bottom, BottomLeft, TopLeft];\n							self.drawScore(right);\n						break;\n						case 1:\n						case 11:\n						case 21: \n							scoreCoordArray = [TopRight, BottomRight];\n							self.drawScore(right);\n						break;\n						case 2:\n						case 12:\n						case 22: \n							scoreCoordArray = [Top, TopRight, Middle, BottomLeft, Bottom];\n							self.drawScore(right);\n						break;\n						case 3:\n						case 13:\n						case 23:  \n							scoreCoordArray = [Top, TopRight, BottomRight, Middle, Bottom];\n							self.drawScore(right);\n						break;\n						case 4:\n						case 14:\n						case 24:\n						case 25:\n							scoreCoordArray = [TopRight, BottomRight, Middle, TopLeft];\n							self.drawScore(right);\n						break;\n						case 5:\n						case 15:\n							scoreCoordArray = [Top, TopLeft, Middle, BottomRight, Bottom];\n							self.drawScore(right);\n						break;\n						case 6:\n						case 16:\n							scoreCoordArray = [Top, BottomRight, Middle, Bottom, BottomLeft, TopLeft];\n							self.drawScore(right);\n						break;\n						case 7:\n						case 17:\n							scoreCoordArray = [Top, TopRight, BottomRight];\n							self.drawScore(right);\n						break;\n						case 8:\n						case 18:\n							scoreCoordArray = [Top, TopRight, BottomRight, Middle, Bottom, BottomLeft, TopLeft];\n							self.drawScore(right);\n						break;\n						case 9:\n						case 19:\n							scoreCoordArray = [Top, TopRight, Middle, BottomRight, TopLeft];\n							self.drawScore(right);\n						break;\n					}\n					self.incrementScore();\n					return;\n				}\n\n	      			this.clearScore = function() {\n\n					_context.clearRect(0, 0, 200, 115);\n				           return;\n				}	\n\n				this.drawScore = function (position) {\n\n			\n					//The outer loop moves each array in the multi-dimensional scoreCoordArray into the tempArray\n					for (var index = 0; index < scoreCoordArray.length; index++) {\n\n						tempArray = scoreCoordArray[index];\n						_context.beginPath();\n\n						//The inner loop takes each tempArray elements and \n						for (var counter = 0; counter < tempArray.length - 1; counter += 2) {\n\n							if (counter == 0 || counter == 1 ) {\n\n							nextVal = counter + 1;\n\n							_context.moveTo(tempArray[counter] + position, tempArray[nextVal]);	\n							}\n							else {\n							nextVal = counter + 1;\n							_context.lineTo(tempArray[counter]  + position, tempArray[nextVal]);\n\n							}\n						}\n						_context.closePath();\n						_context.fillStyle = \"#FFFFFF\";\n						_context.fill();\n					}\n				}\n				return;\n			}\n			//End Score\n\n 			function Ball(context, canvas, leftScore) {\n\n				var self = this;\n				var _context;\n				var _canvas; \n				var _xCoordsBall; \n				var _yCoordsBall;\n				var direction = 'left'; \n\n				Ball.prototype.drawInitialBall = function(context, canvas, xCoordsBall, yCoordsBall) {\n\n					_context = context;\n					_canvas = canvas;\n					_xCoordsBall = xCoordsBall;\n					_yCoordsBall = yCoordsBall;\n				 \n				          self.drawBall();\n				}\n\n				Ball.prototype.drawBall = function () {\n				           _context.beginPath();\n				           _context.arc(_xCoordsBall, _yCoordsBall, radius, 0, 2 * Math.PI, false);\n				           _context.fillStyle = 'rgb(255,255,255)';\n				           _context.fill();\n				           return;\n				}\n\n	 			Ball.prototype.clearBall = function () {\n				           _context.beginPath();\n				           _context.arc(_xCoordsBall, _yCoordsBall, radius + 4, 0, 2 * Math.PI, false);\n				           _context.fillStyle = 'rgb(0,0,0)';\n				           _context.fill();\n				           return {xCoords : _xCoordsBall, yCoords : _yCoordsBall};\n			           }\n\n       				Ball.prototype.moveBall = function(angleX, angleY, leftRaquet, rightRaquet) {\n           					\n					var endInterval = setInterval(function(){\n						self.clearBall();\n					          //Bounce ball off top of Canvas by making angle of Y axis positive\n						if (_yCoordsBall < 0 && direction == 'right') { \n							angleY = Math.abs(angleY);\n							edgeeffect.play();\n						}\n						//Bounce ball off bottom of Canvas by making angle of Y axis negative\n						if (_yCoordsBall > _canvas.height && direction == 'right') { \n							angleY = -Math.abs(angleY);\n							edgeeffect.play();\n						}\n						if (_yCoordsBall < 0 && direction == 'left') { \n							angleY = -Math.abs(angleY);\n							edgeeffect.play();\n						}\n						//Bounce ball off bottom of Canvas by making angle of Y axis negative\n						if (_yCoordsBall > _canvas.height && direction == 'left') { \n							angleY = Math.abs(angleY);\n							edgeeffect.play();\n						}\n\n					          if(direction == 'left') {\n						           _xCoordsBall = _xCoordsBall - angleX;\n							_yCoordsBall = _yCoordsBall - angleY;\n\n						          	if (_xCoordsBall >= 45) {\n							          self.drawBall();\n\n		          					          if (_xCoordsBall == 126) {\n\n			        					          if (leftRaquet.yCoords() <= _yCoordsBall - 3 && (leftRaquet.yCoords() + 8.57) >= _yCoordsBall)  {\n									          	clearInterval(endInterval);\n										v.play();\n										direction = 'right';	\n									          	self.moveBall(2,-.35, leftRaquet, rightRaquet);\n								          	}\n								          	if ((leftRaquet.yCoords() + 8.57) < _yCoordsBall && (leftRaquet.yCoords() + 17.14) >=_yCoordsBall)  {\n									          	clearInterval(endInterval);\n										v.play();\n										direction = 'right';	\n									          	self.moveBall(2,-.5, leftRaquet, rightRaquet);\n								          	}\n					        					if ((leftRaquet.yCoords() + 17.14) < _yCoordsBall && (leftRaquet.yCoords() + 25.71) >= _yCoordsBall) {\n									          	clearInterval(endInterval);\n										v.play();\n										direction = 'right';	\n									          	self.moveBall(2,-.75, leftRaquet, rightRaquet);\n								          	}\n								          	if ((leftRaquet.yCoords() + 25.71) < _yCoordsBall && (leftRaquet.yCoords() + 34.28) >= _yCoordsBall)  {\n									          	clearInterval(endInterval);\n										v.play();\n										direction = 'right';	\n									          	self.moveBall(1,.9, leftRaquet, rightRaquet);\n								          	}\n								          	if ((leftRaquet.yCoords() + 34.28) < _yCoordsBall && (leftRaquet.yCoords() + 42.8) >=_yCoordsBall)  {\n									          	clearInterval(endInterval);\n										v.play();\n										direction = 'right';	\n									          	self.moveBall(1,1.3, leftRaquet, rightRaquet);\n								          	}\n								          	if ((leftRaquet.yCoords() + 42.8) < _yCoordsBall && (leftRaquet.yCoords() + 51.52) >= _yCoordsBall)  {\n									          	clearInterval(endInterval);\n										v.play();\n										direction = 'right';	\n									          	self.moveBall(1,1.7, leftRaquet, rightRaquet);\n								          	}\n								          	if ((leftRaquet.yCoords() + 51.52) < _yCoordsBall && (leftRaquet.yCoords() + 63) >= _yCoordsBall)  {\n									          	clearInterval(endInterval);\n										v.play();\n										direction = 'right';	\n									          	self.moveBall(.9,2, leftRaquet, rightRaquet);\n								          	}\n							          }\n						          }\n						           else {\n						           	self.clearBall();\n						           	z.play();\n						           	if(rightScore.getScore() < 24) {\n						           		rightScore.updateScore(1);\n					           		} \n						           	else {\n						           		rightScore.updateScore(1);\n						           		displayGameOver();\n						           		alert ('game over: Right Player Wins!!!!!!!');\n									document.getElementById(\"scorecard-div\").style.display = 'block';\n					           		} \n							          clearInterval(endInterval);\n\n						          }\n						}\n						if(direction == 'right') {\n							self.drawBall();\n						       	_xCoordsBall = _xCoordsBall + angleX;\n							_yCoordsBall = _yCoordsBall + angleY;\n						          	if (_xCoordsBall <=(canvas.width-45)) {\n						          		self.drawBall();\n\n							          if (_xCoordsBall >= 1348 && _xCoordsBall <= 1349){\n\n								          if (rightRaquet.yCoords() <= (_yCoordsBall - 3) && (rightRaquet.yCoords() + 8.57) >= _yCoordsBall)  {\n									          	clearInterval(endInterval);\n										v.play();\n										direction = 'left';	\n									          	self.moveBall(2,-.35, leftRaquet, rightRaquet);\n								          	}\n								          	if ((rightRaquet.yCoords() + 8.57) < _yCoordsBall && (rightRaquet.yCoords() + 17.14) >=_yCoordsBall)  {\n									          	clearInterval(endInterval);\n										v.play();\n										direction = 'left';	\n									          	self.moveBall(2,-.5, leftRaquet, rightRaquet);\n								          	}\n									if ((rightRaquet.yCoords() + 17.14) < _yCoordsBall && (rightRaquet.yCoords() + 25.71) >= _yCoordsBall) {\n									          	clearInterval(endInterval);\n										v.play();\n										direction = 'left';	\n									          	self.moveBall(2,-.75, leftRaquet, rightRaquet);\n								          	}\n								          	if ((rightRaquet.yCoords() + 25.71) < _yCoordsBall && (rightRaquet.yCoords() + 34.28) >= _yCoordsBall)  {\n									          	clearInterval(endInterval);\n										v.play();\n										direction = 'left';	\n									          	self.moveBall(1,.9, leftRaquet, rightRaquet);\n								          	}\n								          	if ((rightRaquet.yCoords() + 34.28) < _yCoordsBall && (rightRaquet.yCoords() + 42.8) >=_yCoordsBall)  {\n									          	clearInterval(endInterval);\n										v.play();\n										direction = 'left';	\n									          	self.moveBall(1,1.3, leftRaquet, rightRaquet);\n								          	}\n								          	if ((rightRaquet.yCoords() + 42.8) < _yCoordsBall && (rightRaquet.yCoords() + 51.52) >= _yCoordsBall)  {\n									          	clearInterval(endInterval);\n										v.play();\n										direction = 'left';	\n									          	self.moveBall(1,1.7, leftRaquet, rightRaquet);\n								          	}\n								          	if ((rightRaquet.yCoords() + 51.52) < _yCoordsBall && (rightRaquet.yCoords() + 63) >= _yCoordsBall)  {\n									          	clearInterval(endInterval);\n										v.play();\n										direction = 'left';	\n									          	self.moveBall(.9,2, leftRaquet, rightRaquet);\n								          	}\n							          }\n						          }\n						            else {\n							          self.clearBall();\n							          z.play();\n						          	          if(leftScore.getScore() < 25) {\n								           	leftScore.updateScore(1);\n						           		} \n							           	else {\n							           		leftScore.updateScore(2);\n							           		displayGameOver();\n							           		// alert ('game over: left Player Wins!!!!!!!');\n										document.getElementById(\"scorecard-div\").style.display = 'block';\n						           		} \n							          clearInterval(endInterval);\n						          }\n					      	}\n\n					}, 3);\n				}\n			}\n			//End Ball\n			function Raquet(context, canvas) {\n\n				                                 this._context = 0;\n				var _canvas;\n				// var this._xCoordsRaquet;\n				// var this._yCoordsRaquet;\n\n				this.yCoords = function(){\n					return this._yCoordsRaquet;\n				}\n				this.xCoords = function(){\n					return this._xCoordsRaquet;\n				}\n\n				Raquet.prototype.drawInitialRaquet = function(context, canvas, xCoordsRaquet, yCoordsRaquet, player) {\n					\n					_context = context;\n					this._canvas = canvas;\n					this._xCoordsRaquet = xCoordsRaquet;\n					this._yCoordsRaquet = yCoordsRaquet;\n				 \n				            this.drawRaquet(); \n				}\n\n	                                    Raquet.prototype.drawRaquet = function() {\n				          context.beginPath();\n				          context.rect(this._xCoordsRaquet, this._yCoordsRaquet, 10, 60);\n				          context.fillStyle = 'rgb(255,255,255)';\n				          context.fill();\n				          return;\n				}\n\n	      			Raquet.prototype.clearRaquet = function() {\n					context.clearRect(this._xCoordsRaquet-2, this._yCoordsRaquet-4, 11, 60);\n					context.beginPath();\n				            context.rect(this._xCoordsRaquet-2, this._yCoordsRaquet-4, 15, 66);\n				            context.fillStyle = 'rgb(0,0,0)';\n				            context.fill();\n				           return;\n				}\n\n				Raquet.prototype.moveRaquet = function(direction) {\n					if (this._yCoordsRaquet >= -1 && direction == 'up' ) {\n						this.clearRaquet();\n				            	this._yCoordsRaquet -= 10;\n				            	this.drawRaquet();\n					}\n					if ((this._yCoordsRaquet+60) <= this._canvas.height && direction == 'down' ) {\n						this.clearRaquet();\n				            	this._yCoordsRaquet += 10;\n				            	this.drawRaquet();\n				          }\n				}\n			}\n			//End Raquet\n		</script>\n	</body>\n</html>",
+			"file": "pong.html",
+			"file_size": 33367,
+			"file_write_time": 130667187709996385,
 			"settings":
 			{
-				"buffer_size": 4650,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/C/xampp/htdocs/demos/landingPage/css/stylesheet.scss",
-			"settings":
-			{
-				"buffer_size": 200,
+				"buffer_size": 33367,
 				"line_ending": "Unix"
 			}
 		}
@@ -225,6 +224,7 @@
 	"file_history":
 	[
 		"/C/xampp/htdocs/demos/landingPage/index.html",
+		"/C/xampp/htdocs/demos/landingPage/css/stylesheet.scss",
 		"/C/xampp/htdocs/demos/HTML_Canvas_Element/Pong/pong.html",
 		"/C/xampp/htdocs/demos/landingPage/css/bootstrap.css",
 		"/C/xampp/htdocs/Bootstrap Framework/Examples/TB-Buttons/buttons.html",
@@ -356,6 +356,14 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"scorecard-div",
+			"color",
+			"gameover",
+			"gameover-section",
+			"px",
+			"leftplayerinput",
+			"rightplayerinput",
+			"}\n",
 			"btn",
 			"scorecard-h1",
 			"position",
@@ -475,15 +483,7 @@
 			"clearball",
 			"direction",
 			" yCoordsBall",
-			"(yCoords",
-			"yCoords",
-			"leftRaquet.yCoords()",
-			"drawRaquet",
-			"clearRaquet",
-			"_yCoordsRaquet",
-			"xCoordsRaquet",
-			"yCoordsRaquetLeft",
-			"yCoordsRaquetRight"
+			"(yCoords"
 		],
 		"highlight": false,
 		"in_selection": false,
@@ -507,68 +507,36 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "/C/xampp/htdocs/demos/landingPage/index.html",
+					"file": "pong.html",
 					"settings":
 					{
-						"buffer_size": 4650,
+						"buffer_size": 33367,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								10457,
+								10457
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1566.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "/C/xampp/htdocs/demos/landingPage/css/stylesheet.scss",
-					"settings":
-					{
-						"buffer_size": 200,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 5049.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				}
-			]
-		},
-		{
-			"sheets":
-			[
 			]
 		}
 	],
@@ -589,18 +557,11 @@
 				0,
 				1,
 				1
-			],
-			[
-				1,
-				0,
-				2,
-				1
 			]
 		],
 		"cols":
 		[
 			0.0,
-			0.5,
 			1.0
 		],
 		"rows":
@@ -659,6 +620,6 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 150.0,
+	"side_bar_width": 176.0,
 	"status_bar_visible": false
 }
