@@ -48,7 +48,12 @@
 				background-color:black; "
 			}
 			.scoreboard_savegame-div,
-			.newgame-div {
+			.newgame-div,
+			.maxgames-clear-div,
+			.gameover-section,
+			.savegame-clear-div,
+			.scoreboard-clear-div,
+			.playnewgame-div {
 				display: none;
 			}
 			.scoreboard_savegame-div,
@@ -69,7 +74,10 @@
 				border-color: white;
 				border-style: solid;	
 			}
-
+			/*if having problems with save game window check this section */
+			.scoreboard_savegame-section:last-child {
+				clear: both;
+			}
 			.scoreboard_savegame-div .scoreboard_savegame-section .scoreboard_savegame-header .gameinfo-h2,
 			.scoreboard_savegame-div .scoreboard_savegame-section .scoreboard_savegame-header .game {
 				width: 4.5em;
@@ -153,7 +161,7 @@
 				<input id="newgamebutton" type="button" value="New Game" onclick="displayNewGame();" />
 				<input id="endgamebutton" type="button" value="End Game" onclick="" />
 				<input id="resumegamebutton" type="button" value="Resume Game" onclick="" />
-				<input id="scorebutton" type="button" value="Display Scoreboard" onclick="displayScoreboard();" />
+				<input id="scorebutton" type="button" value="Display Scoreboard" onclick="setElementDisplayType('scoreboard_savegame-div', 'block');" />
 			</form>
 			<br />
 			<section class="newgame-div centered" id="newgame-div">
@@ -226,10 +234,11 @@
 						</header>
 					</section>
 				</section>
-				<section class="scoreboard_savegame-section footer" style="clear:both;">
+<!-- 				<section class="scoreboard_savegame-section footer" style="clear:both;"> -->
+				<section class="scoreboard_savegame-section footer" >
 					<footer class="scoreboard_savegame-footer">
 						<input type="image" src="images/button-Erase-All-Games.png" />
-						<input type="image" src="images/buttons-Close-Form.png" autofocus onclick="hideScoreboard();"/>
+						<input type="image" src="images/buttons-Close-Form.png" autofocus onclick="setElementDisplayType('scoreboard_savegame-div','none');setElementAttribute('scorebutton', 'disabled')"/>
 					</footer>
 				</section>
 			</section>
@@ -313,17 +322,23 @@
 			document.getElementById("resumegamebutton").style.display = 'none';
 			document.getElementById("scorebutton").style.display = 'none';
 		}
-		function hideScoreboard() {
-			document.getElementById("scoreboard_savegame-div").style.display = 'none';
-		}
-		function displayScoreboard() {
-			document.getElementById("scoreboard_savegame-div").style.display = 'block';
-			document.getElementById("scorebutton").setAttribute("disabled");
-		}
-		function displayGameOver() {
-			document.getElementById("gameover-section").style.display = 'block';
+		/* setElementDisplayType is a generic function for setting an element's Display attribute
+		     The function take two input variables, the name of the element and the display type 
+		     that is to be set for the element */
+
+		function setElementDisplayType(elementName, displayType) {
+			document.getElementById(elementName).style.display = displayType;
 		}
 
+		/* setElementAttribute is a generic function for setting an element's Attribute
+		     The function take two input variables, the name of the element and the attribute 
+		     that is to be set for the element */
+		function setElementAttribute(elementName, attribute) {
+			document.getElementById(elementName).setAttribute(attribute);
+
+			// function hideScoreboard() {
+			// 	document.getElementById("scoreboard_savegame-div").style.display = 'none';
+			// }
 		</script>
 		<script>
 			function checkCookie(){
@@ -920,7 +935,7 @@
 							           		leftScore.updateScore(2);
 							           		displayGameOver();
 							           		// alert ('game over: left Player Wins!!!!!!!');
-										document.getElementById("scoreboard_savegame-div").style.display = 'block';
+									document.getElementById("scoreboard_savegame-div").style.display = 'block';
 						           		} 
 							          clearInterval(endInterval);
 						          }
