@@ -189,7 +189,9 @@
 					</footer>
 				</section>
 			</section>
-			<!-- scoreboard_savegame WINDOW -->
+
+			<!-- SCOREBOARD/SAVEGAME WINDOW --> 
+
 			<section class="scoreboard_savegame-div centered" id="scoreboard_savegame-div">
 				<section class="scoreboard_savegame-section header" >
 					<header>
@@ -245,7 +247,7 @@
 
 			<!-- ALL GAME MESSAGES --> 
 
-			<!-- PLAY A NEW GAME MESSAGE-->
+			<!----- PLAY A NEW GAME MESSAGE-->
 			<section class="playnewgame-div centered" id="playnewgame-div">
 				<p>Play a New Game?</p>
 				<footer class="playnewgame-footer">
@@ -253,7 +255,7 @@
 					<input type="image" src="images/button-No.png" autofocus onclick="document.getElementById('playnewgame-div').style.display = 'none';" />
 				</footer>
 			</section>
-			<!-- ERASE SCOREBOARD MESSAGE-->
+			<!----- ERASE SCOREBOARD MESSAGE-->
 			<section class="scoreboard-clear-div centered" id="scoreboard-clear-div">
 				<p>Are you sure you want to erase all scores?</p>
 				<footer class="scoreboard-footer">
@@ -261,7 +263,7 @@
 					<input type="image" src="images/button-No.png" autofocus onclick="document.getElementById('scoreboard-clear-div').style.display = 'none';"/>
 				</footer>
 			</section>
-			<!-- ERASE SAVED GAMES MESSAGE-->
+			<!----- ERASE SAVED GAMES MESSAGE-->
 			<section class="savegame-clear-div centered" id="savegame-clear-div">
 				<p>Are you sure you want to erase all games?</p>
 				<footer class="savegame-footer">
@@ -269,7 +271,7 @@
 					<input type="image" src="images/button-No.png" autofocus onclick="document.getElementById('savegame-clear-div').style.display = 'none';"/>
 				</footer>
 			</section>
-			<!-- MAXIMUM NUMBER OF GAMES REACHED MESSAGE-->
+			<!----- MAXIMUM NUMBER OF GAMES REACHED MESSAGE-->
 			<section class="maxgames-clear-div centered" id="maxgames-clear-div">
 				<p>The Maximum (10) Number of saved games<br/>
 					has been reached. <br/><br/>Do you want to delete
@@ -279,19 +281,30 @@
 					<input type="image" src="images/button-No.png" autofocus onclick="document.getElementById('maxgames-clear-div').style.display = 'none';"/>
 				</footer>
 			</section>
-			<!-- GAMEOVER MESSAGE -->
+			<!----- GAMEOVER MESSAGE -->
 			<section class="gameover-section centered blink"  id="gameover-section">
 				<p class="gameover" id="gameover">GAME OVER</p>
 			</section>
 
-			<!-- \\ ALL GAME MESSAGES --> 
+			<!--ALL GAMEBOARD ELEMENTS-->
+			
+			
+			<div style="position:relative">
+				<!----- GAMEBOARD-->
+				<canvas id="gameBoardCanvas" width="1500%" height="675%" style="background-color: #000; position: relative;" >
+				</canvas>
 
-			<!--GAMEBOARD-->
+				<!----- GAMEBOARD NET-->
+				<section class='net centered' id='net'  style="position:absolute;z-index:999; background-image: url(images/net.gif);  background-repeat: repeat-y; width: 20px; height: 100%;">
+				</section>
+			</div>
+
+			<!----- LEFT PLAYER SCORE-->
 			<canvas class="" id="leftScoreCanvas" width="115px" height="79px" style="position: absolute; top: 100px; left: 393px;" ></canvas>
+			<!----- RIGHT PLAYER SCORE-->
 			<canvas id="rightScoreCanvas" width="115px" height="79px" style="position:absolute; top:100px; left:1000px;"></canvas>
-			<canvas id="gameBoardCanvas" width="1500%" height="675%" style="background-color: #000;" ></canvas>
 
-			<!--This section plays the MorseCode audio file-->
+			<!----- SOUND EFFECTS-->
 			<audio class="hit">
 				<source src="18790.wav">
 				<p>Your browser does not support the audio element.</p>
