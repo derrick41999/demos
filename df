@@ -1,0 +1,15 @@
+[1mdiff --git a/pong.html b/pong.html[m
+[1mindex 986d6ad..4c2e161 100644[m
+[1m--- a/pong.html[m
+[1m+++ b/pong.html[m
+[36m@@ -293,7 +293,7 @@[m
+ 				<!----- GAMEBOARD-->[m
+ 				<canvas id="gameBoardCanvas" width="1500%" height="675%" style="background-color: #000; position: relative;" >[m
+ 				</canvas>[m
+[31m- [m
+[32m+[m[41m  [m
+ 				<!----- GAMEBOARD NET-->[m
+ 				<section class='net centered' id='net'  style="position:absolute;z-index:999; background-image: url(images/net.gif);  background-repeat: repeat-y; width: 20px; height: 100%;">[m
+ 				</section>[m
+warning: LF will be replaced by CRLF in pong.html.
+The file will have its original line endings in your working directory.

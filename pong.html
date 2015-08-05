@@ -17,6 +17,7 @@
 				display:inline-block;"
 			}
 			.container .functionbuttonbar {
+				margin-left: 3em;
 				margin-top:2em;
 			}
 			.centered {
@@ -38,7 +39,7 @@
 				margin: 0; 
 				padding: 0;
 				color: green;
-				margin-left: 4em; 
+				margin-left: 2em; 
 				margin-bottom:4em;
 				font-family: georgia, serif;
 				font: georgia, serif;
@@ -54,6 +55,7 @@
 			.savegame-clear-div,
 			.scoreboard-clear-div,
 			.playnewgame-div {
+				z-index: 999;
 				display: none;
 			}
 			.scoreboard_savegame-div,
@@ -150,20 +152,22 @@
 	<body onLoad="checkCookie()">
 		<section class="header-div">
 			<header>			
-				<h1 >PONG programmed by Derrick Douglass <a href="http:\\www.derrickdouglassdesigns.com">www.derrickdouglassdesigns.com</a>:: BETA VERSION
-				</h1>
+				<h1 >PONG by Derrick Douglass <a href="http://www.derrickdouglassdesigns.com"> derrickdouglassdesigns.com</a>:: BETA VERSION
+				</h1> 
 			</header>
 		<section>
 		<section class="container centered" >
 			<!-- Game Buttons -->
 			<form class="functionbuttonbar">
 				<input id="servebutton" type="button" value="Serve Ball" onclick="serveBall();" autofocus />
-				<input id="newgamebutton" type="button" value="New Game" onclick="displayNewGame();" />
+				<input id="newgamebutton" type="button" value="New Game" onclick="displayNewGame()" />
 				<input id="endgamebutton" type="button" value="End Game" onclick="" />
 				<input id="resumegamebutton" type="button" value="Resume Game" onclick="" />
-				<input id="scorebutton" type="button" value="Display Scoreboard" onclick="setElementDisplayType('scoreboard_savegame-div', 'block');" />
+				<input id="scorebutton" type="button" value="Display Scoreboard" onclick="var state = document.getElementById('displayscoreboardindicator').value; if (state == 'false') { setElementDisplayType('scoreboard_savegame-div', 'block'); setElementDisplayType('net','none'); document.getElementById('displayscoreboardindicator').value='true';} else {setElementDisplayType('scoreboard_savegame-div', 'none'); setElementDisplayType('net','block'); document.getElementById('displayscoreboardindicator').value='false';}" />
+				<input id="displayscoreboardindicator" value="false" style="display:none" />
 			</form>
 			<br />
+			<!--Display New Game Window-->
 			<section class="newgame-div centered" id="newgame-div">
 				<section class="newgame-section header" >
 					<header>
@@ -185,7 +189,7 @@
 				<section class="newgame-section footer"  style="padding-top:1em;display: inline-block">
 					<footer class="newgame-footer">
 						<input type="image" src="images/button-Start-New-Game.png" />
-						<input type="image" src="images/button-Cancel-New-Game.png" autofocus onclick="document.getElementById('newgame-div').style.display = 'none';" />
+						<input type="image" src="images/button-Cancel-New-Game.png" autofocus onclick="hideNewGame()" />
 					</footer>
 				</section>
 			</section>
@@ -240,7 +244,7 @@
 				<section class="scoreboard_savegame-section footer" >
 					<footer class="scoreboard_savegame-footer">
 						<input type="image" src="images/button-Erase-All-Games.png" />
-						<input type="image" src="images/buttons-Close-Form.png" autofocus onclick="setElementDisplayType('scoreboard_savegame-div','none');setElementAttribute('scorebutton', 'disabled')"/>
+						<input type="image" src="images/buttons-Close-Form.png" autofocus onclick="setElementDisplayType('scoreboard_savegame-div','none'); setElementDisplayType('net','block'); document.getElementById('displayscoreboardindicator').value='false'; setElementAttribute('scorebutton', 'disabled');"/>
 					</footer>
 				</section>
 			</section>
@@ -319,21 +323,27 @@
 			</audio>
 		</section>
 		<script>
-		function hideNewGame() {
-			document.getElementById("newgame-div").style.display = 'inline-block';
-			document.getElementById("newgamebutton").style.display = 'inline-block';
-			document.getElementById("servebutton").style.display = 'inline-block';
-			document.getElementById("endgamebutton").style.display = 'inline-block';
-			document.getElementById("resumegamebutton").style.display = 'inline-block';
-			document.getElementById("scorebutton").style.display = 'inline-block';
+		function hideNewGame() { 
+			for(var i = 0; i < 2; i++) { 
+			}
+			document.getElementById("newgame-div").style.display = 'none';
+			document.getElementById("newgamebutton").disabled= false;
+			document.getElementById("servebutton").disabled= false;
+			document.getElementById("endgamebutton").disabled= false;
+			document.getElementById("resumegamebutton").disabled= false;
+			document.getElementById("scorebutton").disabled= false;
 		}
-		function displayNewGame() {
+		function displayNewGame(){
+			var elems = document.getElementsByClassName('newgame-div'); 
+			for(var i = 0; i < elems.length; i++) { 
+				elems[i].style.display  = 'inline-block'; 
+			}
 			document.getElementById("newgame-div").style.display = 'inline-block';
-			document.getElementById("newgamebutton").style.display = 'none';
-			document.getElementById("servebutton").style.display = 'none';
-			document.getElementById("endgamebutton").style.display = 'none';
-			document.getElementById("resumegamebutton").style.display = 'none';
-			document.getElementById("scorebutton").style.display = 'none';
+			document.getElementById("newgamebutton").disabled= true;
+			document.getElementById("servebutton").disabled= true;
+			document.getElementById("endgamebutton").disabled= true;
+			document.getElementById("resumegamebutton").disabled= true;
+			document.getElementById("scorebutton").disabled= true;
 		}
 		/* setElementDisplayType is a generic function for setting an element's Display attribute
 		     The function take two input variables, the name of the element and the display type 
@@ -349,9 +359,10 @@
 		function setElementAttribute(elementName, attribute) {
 			document.getElementById(elementName).setAttribute(attribute);
 
-			// function hideScoreboard() {
-			// 	document.getElementById("scoreboard_savegame-div").style.display = 'none';
-			// }
+/*			 function hideScoreboard() {
+			 	document.getElementById("scoreboard_savegame-div").style.display = 'none';*/
+		 
+		}
 		</script>
 		<script>
 			function checkCookie(){
